@@ -1,0 +1,2103 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="SCP_UVMModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="SCP_UVMModelStoreContainer">
+    <EntitySet Name="USUARIOs" EntityType="SCP_UVMModel.Store.USUARIOs" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ROLes" EntityType="SCP_UVMModel.Store.ROLes" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PROGRAMAs" EntityType="SCP_UVMModel.Store.PROGRAMAs" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PERSONAs" EntityType="SCP_UVMModel.Store.PERSONAs" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CONSOLIDADOs" EntityType="SCP_UVMModel.Store.CONSOLIDADOs" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SALIDA_TERRENOs" EntityType="SCP_UVMModel.Store.SALIDA_TERRENOs" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="OPEXes" EntityType="SCP_UVMModel.Store.OPEXes" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CAPEXes" EntityType="SCP_UVMModel.Store.CAPEXes" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PROP_DIPLOMADOs" EntityType="SCP_UVMModel.Store.PROP_DIPLOMADOs" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PAGO_DIPLOMADOs" EntityType="SCP_UVMModel.Store.PAGO_DIPLOMADOs" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="REEMBOLSOs" EntityType="SCP_UVMModel.Store.REEMBOLSOs" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="RENDICIONes" EntityType="SCP_UVMModel.Store.RENDICIONes" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="FACTURAs" EntityType="SCP_UVMModel.Store.FACTURAs" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="BOLETAs" EntityType="SCP_UVMModel.Store.BOLETAs" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="MESes" EntityType="SCP_UVMModel.Store.MESes" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SOLICITUDes" EntityType="SCP_UVMModel.Store.SOLICITUDes" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CAMBIOs" EntityType="SCP_UVMModel.Store.CAMBIOs" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="DETALLE_RENDICION" EntityType="SCP_UVMModel.Store.DETALLE_RENDICION" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PERSONAs_PERSONA_JURIDICAs" EntityType="SCP_UVMModel.Store.PERSONAs_PERSONA_JURIDICAs" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PERSONAs_PERSONA_NATURALes" EntityType="SCP_UVMModel.Store.PERSONAs_PERSONA_NATURALes" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PROGRAMAs_CARRERA" EntityType="SCP_UVMModel.Store.PROGRAMAs_CARRERA" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PROGRAMAs_DIPLOMADO" EntityType="SCP_UVMModel.Store.PROGRAMAs_DIPLOMADO" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PROGRAMAs_MAGISTER" EntityType="SCP_UVMModel.Store.PROGRAMAs_MAGISTER" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SALIDA_TERRENOMES" EntityType="SCP_UVMModel.Store.SALIDA_TERRENOMES" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PERSONA_NATURALSOLICITUD" EntityType="SCP_UVMModel.Store.PERSONA_NATURALSOLICITUD" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CAMBIOOPEX" EntityType="SCP_UVMModel.Store.CAMBIOOPEX" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="MAGISTEROPEX" EntityType="SCP_UVMModel.Store.MAGISTEROPEX" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="DIPLOMADOOPEX" EntityType="SCP_UVMModel.Store.DIPLOMADOOPEX" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CARRERAOPEX" EntityType="SCP_UVMModel.Store.CARRERAOPEX" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CARRERACAPEX" EntityType="SCP_UVMModel.Store.CARRERACAPEX" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="DIPLOMADOPROP_DIPLOMADO" EntityType="SCP_UVMModel.Store.DIPLOMADOPROP_DIPLOMADO" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="DETALLE_RENDICIONRENDICION" EntityType="SCP_UVMModel.Store.DETALLE_RENDICIONRENDICION" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="USUARIOROL" Association="SCP_UVMModel.Store.USUARIOROL">
+      <End Role="USUARIO" EntitySet="USUARIOs" />
+      <End Role="ROL" EntitySet="ROLes" />
+    </AssociationSet>
+    <AssociationSet Name="PERSONA_JURIDICARENDICION" Association="SCP_UVMModel.Store.PERSONA_JURIDICARENDICION">
+      <End Role="PERSONA_JURIDICA" EntitySet="PERSONAs_PERSONA_JURIDICAs" />
+      <End Role="RENDICION" EntitySet="RENDICIONes" />
+    </AssociationSet>
+    <AssociationSet Name="PERSONA_JURIDICACAPEX" Association="SCP_UVMModel.Store.PERSONA_JURIDICACAPEX">
+      <End Role="PERSONA_JURIDICA" EntitySet="PERSONAs_PERSONA_JURIDICAs" />
+      <End Role="CAPEX" EntitySet="CAPEXes" />
+    </AssociationSet>
+    <AssociationSet Name="PERSONA_NATURALOPEX" Association="SCP_UVMModel.Store.PERSONA_NATURALOPEX">
+      <End Role="PERSONA_NATURAL" EntitySet="PERSONAs_PERSONA_NATURALes" />
+      <End Role="OPEX" EntitySet="OPEXes" />
+    </AssociationSet>
+    <AssociationSet Name="PERSONA_NATURALPROP_DIPLOMADO" Association="SCP_UVMModel.Store.PERSONA_NATURALPROP_DIPLOMADO">
+      <End Role="PERSONA_NATURAL" EntitySet="PERSONAs_PERSONA_NATURALes" />
+      <End Role="PROP_DIPLOMADO" EntitySet="PROP_DIPLOMADOs" />
+    </AssociationSet>
+    <AssociationSet Name="PERSONA_NATURALPAGO_DIPLOMADO" Association="SCP_UVMModel.Store.PERSONA_NATURALPAGO_DIPLOMADO">
+      <End Role="PERSONA_NATURAL" EntitySet="PERSONAs_PERSONA_NATURALes" />
+      <End Role="PAGO_DIPLOMADO" EntitySet="PAGO_DIPLOMADOs" />
+    </AssociationSet>
+    <AssociationSet Name="PERSONA_NATURALREEMBOLSO" Association="SCP_UVMModel.Store.PERSONA_NATURALREEMBOLSO">
+      <End Role="PERSONA_NATURAL" EntitySet="PERSONAs_PERSONA_NATURALes" />
+      <End Role="REEMBOLSO" EntitySet="REEMBOLSOs" />
+    </AssociationSet>
+    <AssociationSet Name="PERSONA_NATURALRENDICION" Association="SCP_UVMModel.Store.PERSONA_NATURALRENDICION">
+      <End Role="PERSONA_NATURAL" EntitySet="PERSONAs_PERSONA_NATURALes" />
+      <End Role="RENDICION" EntitySet="RENDICIONes" />
+    </AssociationSet>
+    <AssociationSet Name="OPEXFACTURA" Association="SCP_UVMModel.Store.OPEXFACTURA">
+      <End Role="OPEX" EntitySet="OPEXes" />
+      <End Role="FACTURA" EntitySet="FACTURAs" />
+    </AssociationSet>
+    <AssociationSet Name="OPEXBOLETA" Association="SCP_UVMModel.Store.OPEXBOLETA">
+      <End Role="OPEX" EntitySet="OPEXes" />
+      <End Role="BOLETA" EntitySet="BOLETAs" />
+    </AssociationSet>
+    <AssociationSet Name="CAPEXBOLETA" Association="SCP_UVMModel.Store.CAPEXBOLETA">
+      <End Role="CAPEX" EntitySet="CAPEXes" />
+      <End Role="BOLETA" EntitySet="BOLETAs" />
+    </AssociationSet>
+    <AssociationSet Name="CAPEXFACTURA" Association="SCP_UVMModel.Store.CAPEXFACTURA">
+      <End Role="CAPEX" EntitySet="CAPEXes" />
+      <End Role="FACTURA" EntitySet="FACTURAs" />
+    </AssociationSet>
+    <AssociationSet Name="CONSOLIDADOCARRERA" Association="SCP_UVMModel.Store.CONSOLIDADOCARRERA">
+      <End Role="CONSOLIDADO" EntitySet="CONSOLIDADOs" />
+      <End Role="CARRERA" EntitySet="PROGRAMAs_CARRERA" />
+    </AssociationSet>
+    <AssociationSet Name="CONSOLIDADODIPLOMADO" Association="SCP_UVMModel.Store.CONSOLIDADODIPLOMADO">
+      <End Role="CONSOLIDADO" EntitySet="CONSOLIDADOs" />
+      <End Role="DIPLOMADO" EntitySet="PROGRAMAs_DIPLOMADO" />
+    </AssociationSet>
+    <AssociationSet Name="CONSOLIDADOMAGISTER" Association="SCP_UVMModel.Store.CONSOLIDADOMAGISTER">
+      <End Role="CONSOLIDADO" EntitySet="CONSOLIDADOs" />
+      <End Role="MAGISTER" EntitySet="PROGRAMAs_MAGISTER" />
+    </AssociationSet>
+    <AssociationSet Name="CONSOLIDADOMES" Association="SCP_UVMModel.Store.CONSOLIDADOMES">
+      <End Role="CONSOLIDADO" EntitySet="CONSOLIDADOs" />
+      <End Role="MES" EntitySet="MESes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SALIDA_TERRENOMES_SALIDA_TERRENO" Association="SCP_UVMModel.Store.FK_SALIDA_TERRENOMES_SALIDA_TERRENO">
+      <End Role="SALIDA_TERRENO" EntitySet="SALIDA_TERRENOs" />
+      <End Role="SALIDA_TERRENOMES" EntitySet="SALIDA_TERRENOMES" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SALIDA_TERRENOMES_MES" Association="SCP_UVMModel.Store.FK_SALIDA_TERRENOMES_MES">
+      <End Role="MES" EntitySet="MESes" />
+      <End Role="SALIDA_TERRENOMES" EntitySet="SALIDA_TERRENOMES" />
+    </AssociationSet>
+    <AssociationSet Name="PERSONA_JURIDICASOLICITUD" Association="SCP_UVMModel.Store.PERSONA_JURIDICASOLICITUD">
+      <End Role="PERSONA_JURIDICA" EntitySet="PERSONAs_PERSONA_JURIDICAs" />
+      <End Role="SOLICITUD" EntitySet="SOLICITUDes" />
+    </AssociationSet>
+    <AssociationSet Name="SOLICITUDCAPEX" Association="SCP_UVMModel.Store.SOLICITUDCAPEX">
+      <End Role="SOLICITUD" EntitySet="SOLICITUDes" />
+      <End Role="CAPEX" EntitySet="CAPEXes" />
+    </AssociationSet>
+    <AssociationSet Name="SOLICITUDOPEX" Association="SCP_UVMModel.Store.SOLICITUDOPEX">
+      <End Role="SOLICITUD" EntitySet="SOLICITUDes" />
+      <End Role="OPEX" EntitySet="OPEXes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PERSONA_NATURALSOLICITUD_PERSONA_NATURAL" Association="SCP_UVMModel.Store.FK_PERSONA_NATURALSOLICITUD_PERSONA_NATURAL">
+      <End Role="PERSONA_NATURAL" EntitySet="PERSONAs_PERSONA_NATURALes" />
+      <End Role="PERSONA_NATURALSOLICITUD" EntitySet="PERSONA_NATURALSOLICITUD" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PERSONA_NATURALSOLICITUD_SOLICITUD" Association="SCP_UVMModel.Store.FK_PERSONA_NATURALSOLICITUD_SOLICITUD">
+      <End Role="SOLICITUD" EntitySet="SOLICITUDes" />
+      <End Role="PERSONA_NATURALSOLICITUD" EntitySet="PERSONA_NATURALSOLICITUD" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CAMBIOOPEX_CAMBIO" Association="SCP_UVMModel.Store.FK_CAMBIOOPEX_CAMBIO">
+      <End Role="CAMBIO" EntitySet="CAMBIOs" />
+      <End Role="CAMBIOOPEX" EntitySet="CAMBIOOPEX" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CAMBIOOPEX_OPEX" Association="SCP_UVMModel.Store.FK_CAMBIOOPEX_OPEX">
+      <End Role="OPEX" EntitySet="OPEXes" />
+      <End Role="CAMBIOOPEX" EntitySet="CAMBIOOPEX" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MAGISTEROPEX_MAGISTER" Association="SCP_UVMModel.Store.FK_MAGISTEROPEX_MAGISTER">
+      <End Role="MAGISTER" EntitySet="PROGRAMAs_MAGISTER" />
+      <End Role="MAGISTEROPEX" EntitySet="MAGISTEROPEX" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MAGISTEROPEX_OPEX" Association="SCP_UVMModel.Store.FK_MAGISTEROPEX_OPEX">
+      <End Role="OPEX" EntitySet="OPEXes" />
+      <End Role="MAGISTEROPEX" EntitySet="MAGISTEROPEX" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DIPLOMADOOPEX_DIPLOMADO" Association="SCP_UVMModel.Store.FK_DIPLOMADOOPEX_DIPLOMADO">
+      <End Role="DIPLOMADO" EntitySet="PROGRAMAs_DIPLOMADO" />
+      <End Role="DIPLOMADOOPEX" EntitySet="DIPLOMADOOPEX" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DIPLOMADOOPEX_OPEX" Association="SCP_UVMModel.Store.FK_DIPLOMADOOPEX_OPEX">
+      <End Role="OPEX" EntitySet="OPEXes" />
+      <End Role="DIPLOMADOOPEX" EntitySet="DIPLOMADOOPEX" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CARRERAOPEX_CARRERA" Association="SCP_UVMModel.Store.FK_CARRERAOPEX_CARRERA">
+      <End Role="CARRERA" EntitySet="PROGRAMAs_CARRERA" />
+      <End Role="CARRERAOPEX" EntitySet="CARRERAOPEX" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CARRERAOPEX_OPEX" Association="SCP_UVMModel.Store.FK_CARRERAOPEX_OPEX">
+      <End Role="OPEX" EntitySet="OPEXes" />
+      <End Role="CARRERAOPEX" EntitySet="CARRERAOPEX" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CARRERACAPEX_CARRERA" Association="SCP_UVMModel.Store.FK_CARRERACAPEX_CARRERA">
+      <End Role="CARRERA" EntitySet="PROGRAMAs_CARRERA" />
+      <End Role="CARRERACAPEX" EntitySet="CARRERACAPEX" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CARRERACAPEX_CAPEX" Association="SCP_UVMModel.Store.FK_CARRERACAPEX_CAPEX">
+      <End Role="CAPEX" EntitySet="CAPEXes" />
+      <End Role="CARRERACAPEX" EntitySet="CARRERACAPEX" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DIPLOMADOPROP_DIPLOMADO_DIPLOMADO" Association="SCP_UVMModel.Store.FK_DIPLOMADOPROP_DIPLOMADO_DIPLOMADO">
+      <End Role="DIPLOMADO" EntitySet="PROGRAMAs_DIPLOMADO" />
+      <End Role="DIPLOMADOPROP_DIPLOMADO" EntitySet="DIPLOMADOPROP_DIPLOMADO" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DIPLOMADOPROP_DIPLOMADO_PROP_DIPLOMADO" Association="SCP_UVMModel.Store.FK_DIPLOMADOPROP_DIPLOMADO_PROP_DIPLOMADO">
+      <End Role="PROP_DIPLOMADO" EntitySet="PROP_DIPLOMADOs" />
+      <End Role="DIPLOMADOPROP_DIPLOMADO" EntitySet="DIPLOMADOPROP_DIPLOMADO" />
+    </AssociationSet>
+    <AssociationSet Name="MESPAGO_DIPLOMADO" Association="SCP_UVMModel.Store.MESPAGO_DIPLOMADO">
+      <End Role="MES" EntitySet="MESes" />
+      <End Role="PAGO_DIPLOMADO" EntitySet="PAGO_DIPLOMADOs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DETALLE_RENDICIONRENDICION_DETALLE_RENDICION" Association="SCP_UVMModel.Store.FK_DETALLE_RENDICIONRENDICION_DETALLE_RENDICION">
+      <End Role="DETALLE_RENDICION" EntitySet="DETALLE_RENDICION" />
+      <End Role="DETALLE_RENDICIONRENDICION" EntitySet="DETALLE_RENDICIONRENDICION" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DETALLE_RENDICIONRENDICION_RENDICION" Association="SCP_UVMModel.Store.FK_DETALLE_RENDICIONRENDICION_RENDICION">
+      <End Role="RENDICION" EntitySet="RENDICIONes" />
+      <End Role="DETALLE_RENDICIONRENDICION" EntitySet="DETALLE_RENDICIONRENDICION" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PERSONA_JURIDICAs_inherits_PERSONA" Association="SCP_UVMModel.Store.FK_PERSONA_JURIDICAs_inherits_PERSONA">
+      <End Role="PERSONA" EntitySet="PERSONAs" />
+      <End Role="PERSONA_JURIDICAs" EntitySet="PERSONAs_PERSONA_JURIDICAs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PERSONA_NATURALes_inherits_PERSONA" Association="SCP_UVMModel.Store.FK_PERSONA_NATURALes_inherits_PERSONA">
+      <End Role="PERSONA" EntitySet="PERSONAs" />
+      <End Role="PERSONA_NATURALes" EntitySet="PERSONAs_PERSONA_NATURALes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CARRERA_inherits_PROGRAMA" Association="SCP_UVMModel.Store.FK_CARRERA_inherits_PROGRAMA">
+      <End Role="PROGRAMA" EntitySet="PROGRAMAs" />
+      <End Role="CARRERA" EntitySet="PROGRAMAs_CARRERA" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DIPLOMADO_inherits_PROGRAMA" Association="SCP_UVMModel.Store.FK_DIPLOMADO_inherits_PROGRAMA">
+      <End Role="PROGRAMA" EntitySet="PROGRAMAs" />
+      <End Role="DIPLOMADO" EntitySet="PROGRAMAs_DIPLOMADO" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MAGISTER_inherits_PROGRAMA" Association="SCP_UVMModel.Store.FK_MAGISTER_inherits_PROGRAMA">
+      <End Role="PROGRAMA" EntitySet="PROGRAMAs" />
+      <End Role="MAGISTER" EntitySet="PROGRAMAs_MAGISTER" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="USUARIOs">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ESTADO" Type="bit" Nullable="false" />
+    <Property Name="NOMBRE_USUARIO" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CONTRASENA" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ROLID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ROLes">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ESTADO" Type="bit" Nullable="false" />
+    <Property Name="NOMBRE_ROL" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PROGRAMAs">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ESTADO" Type="bit" Nullable="false" />
+    <Property Name="NOMBRE" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="U_EXPLOTACION" Type="int" Nullable="false" />
+    <Property Name="DEPARTAMENTO" Type="bigint" Nullable="false" />
+    <Property Name="PROD_TITULO" Type="int" Nullable="false" />
+    <Property Name="DISCIPLINA" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PERSONAs">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ESTADO" Type="bit" Nullable="false" />
+    <Property Name="NOMBRE" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="RUT" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="DIGITO_VERIFICADOR" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CONSOLIDADOs">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ESTADO" Type="bit" Nullable="false" />
+    <Property Name="MONTO" Type="bigint" Nullable="false" />
+    <Property Name="TOTAL" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SALIDA_TERRENOs">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ESTADO" Type="bit" Nullable="false" />
+    <Property Name="TIPO_SALIDA" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="UBICACION" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CANTIDAD_ALUMNOS" Type="smallint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="OPEXes">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ESTADO" Type="bit" Nullable="false" />
+    <Property Name="MONTO_NETO" Type="bigint" Nullable="false" />
+    <Property Name="IVA" Type="bigint" Nullable="false" />
+    <Property Name="TOTAL" Type="bigint" Nullable="false" />
+    <Property Name="ESTADO_OPEX" Type="bit" Nullable="false" />
+    <Property Name="RECEPCION" Type="bit" Nullable="false" />
+    <Property Name="VALIDACION" Type="bit" Nullable="false" />
+    <Property Name="PERSONA_NATURALID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CAPEXes">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ESTADO" Type="bit" Nullable="false" />
+    <Property Name="DETALLE" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="RECEPCION" Type="bit" Nullable="false" />
+    <Property Name="VALIDACION" Type="bit" Nullable="false" />
+    <Property Name="PERSONA_JURIDICAID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PROP_DIPLOMADOs">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ESTADO" Type="bit" Nullable="false" />
+    <Property Name="RESPONSABLE" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="MODALIDAD" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="FECHA_INICIO" Type="datetime" Nullable="false" />
+    <Property Name="FECHA_TERMINO" Type="datetime" Nullable="false" />
+    <Property Name="CANTIDAD_MODULO" Type="smallint" Nullable="false" />
+    <Property Name="CANTIDAD_ALUMNO" Type="smallint" Nullable="false" />
+    <Property Name="COSTO" Type="bigint" Nullable="false" />
+    <Property Name="INGRESO_NETO" Type="bigint" Nullable="false" />
+    <Property Name="COSTO_DOCENTE" Type="bigint" Nullable="false" />
+    <Property Name="COSTO_ACADEMICO" Type="bigint" Nullable="false" />
+    <Property Name="OTROS_COSTOS" Type="bigint" Nullable="false" />
+    <Property Name="TOTAL" Type="bigint" Nullable="false" />
+    <Property Name="PERSONA_NATURALID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PAGO_DIPLOMADOs">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ESTADO" Type="bit" Nullable="false" />
+    <Property Name="PROGRAMA" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="MOTIVO" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="TOTAL" Type="bigint" Nullable="false" />
+    <Property Name="PERSONA_NATURALID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="REEMBOLSOs">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ESTADO" Type="bit" Nullable="false" />
+    <Property Name="DESCRIPCION" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ESTADO_REEMBOLSO" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="FECHA" Type="datetime" Nullable="false" />
+    <Property Name="DETALLE" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="MONTO" Type="bigint" Nullable="false" />
+    <Property Name="TOTAL" Type="bigint" Nullable="false" />
+    <Property Name="PERSONA_NATURALID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RENDICIONes">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ESTADO" Type="bit" Nullable="false" />
+    <Property Name="DESCRIPCION" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ESTADO_ANTICIPO" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="FECHA" Type="datetime" Nullable="false" />
+    <Property Name="ID_RENDICION" Type="int" Nullable="false" />
+    <Property Name="DETALLE_VARIOS" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="PERSONA_NATURALID" Type="int" Nullable="false" />
+    <Property Name="PERSONA_JURIDICAID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FACTURAs">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NUMERO_FACTURA" Type="bigint" Nullable="false" />
+    <Property Name="FECHA_FACTURA" Type="datetime" Nullable="false" />
+    <Property Name="MONTO" Type="bigint" Nullable="false" />
+    <Property Name="DETALLE" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="OPEXID" Type="int" Nullable="false" />
+    <Property Name="CAPEXID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="BOLETAs">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NUMERO_BOLETA" Type="bigint" Nullable="false" />
+    <Property Name="FECHA_BOLETA" Type="datetime" Nullable="false" />
+    <Property Name="MONTO" Type="bigint" Nullable="false" />
+    <Property Name="DETALLE" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="OPEXID" Type="int" Nullable="false" />
+    <Property Name="CAPEXID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MESes">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NOMBRE_MES" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CONSOLIDADOID" Type="int" Nullable="false" />
+    <Property Name="PAGO_DIPLOMADO_ID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SOLICITUDes">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NUMERO_SOLICITUD" Type="bigint" Nullable="false" />
+    <Property Name="DETALLE" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="PERSONA_JURIDICAID" Type="int" Nullable="false" />
+    <Property Name="CAPEXID" Type="int" Nullable="false" />
+    <Property Name="OPEXID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CAMBIOs">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MONEDA_CAMBIO" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="FECHA" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DETALLE_RENDICION">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CODIGO" Type="bigint" Nullable="false" />
+    <Property Name="NOMBRE_ORGANIZACION" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="MONTO" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PERSONAs_PERSONA_JURIDICAs">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PERSONAs_PERSONA_NATURALes">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="APELLIDO_PATERNO" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="APELLIDO_MATERNO" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ID_EMPLEADO" Type="bigint" Nullable="false" />
+    <Property Name="CORREO" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PROGRAMAs_CARRERA">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="CONSOLIDADOID" Type="int" Nullable="false" />
+    <Property Name="ID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PROGRAMAs_DIPLOMADO">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ACTIVITY_CODE" Type="bigint" Nullable="false" />
+    <Property Name="CONSOLIDADOID" Type="int" Nullable="false" />
+    <Property Name="ID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PROGRAMAs_MAGISTER">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="CONSOLIDADOID" Type="int" Nullable="false" />
+    <Property Name="ID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SALIDA_TERRENOMES">
+    <Key>
+      <PropertyRef Name="SALIDA_TERRENO_ID" />
+      <PropertyRef Name="MES_ID" />
+    </Key>
+    <Property Name="SALIDA_TERRENO_ID" Type="int" Nullable="false" />
+    <Property Name="MES_ID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PERSONA_NATURALSOLICITUD">
+    <Key>
+      <PropertyRef Name="PERSONA_NATURAL_ID" />
+      <PropertyRef Name="SOLICITUDs_ID" />
+    </Key>
+    <Property Name="PERSONA_NATURAL_ID" Type="int" Nullable="false" />
+    <Property Name="SOLICITUDs_ID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CAMBIOOPEX">
+    <Key>
+      <PropertyRef Name="CAMBIOs_ID" />
+      <PropertyRef Name="OPEXes_ID" />
+    </Key>
+    <Property Name="CAMBIOs_ID" Type="int" Nullable="false" />
+    <Property Name="OPEXes_ID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MAGISTEROPEX">
+    <Key>
+      <PropertyRef Name="MAGISTERs_ID" />
+      <PropertyRef Name="OPEXes_ID" />
+    </Key>
+    <Property Name="MAGISTERs_ID" Type="int" Nullable="false" />
+    <Property Name="OPEXes_ID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DIPLOMADOOPEX">
+    <Key>
+      <PropertyRef Name="DIPLOMADOes_ID" />
+      <PropertyRef Name="OPEXes_ID" />
+    </Key>
+    <Property Name="DIPLOMADOes_ID" Type="int" Nullable="false" />
+    <Property Name="OPEXes_ID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CARRERAOPEX">
+    <Key>
+      <PropertyRef Name="CARRERAs_ID" />
+      <PropertyRef Name="OPEXes_ID" />
+    </Key>
+    <Property Name="CARRERAs_ID" Type="int" Nullable="false" />
+    <Property Name="OPEXes_ID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CARRERACAPEX">
+    <Key>
+      <PropertyRef Name="CARRERAs_ID" />
+      <PropertyRef Name="CAPEXes_ID" />
+    </Key>
+    <Property Name="CARRERAs_ID" Type="int" Nullable="false" />
+    <Property Name="CAPEXes_ID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DIPLOMADOPROP_DIPLOMADO">
+    <Key>
+      <PropertyRef Name="DIPLOMADOes_ID" />
+      <PropertyRef Name="PROP_DIPLOMADO_ID" />
+    </Key>
+    <Property Name="DIPLOMADOes_ID" Type="int" Nullable="false" />
+    <Property Name="PROP_DIPLOMADO_ID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DETALLE_RENDICIONRENDICION">
+    <Key>
+      <PropertyRef Name="DETALLE_RENDICION_ID" />
+      <PropertyRef Name="RENDICIONs_ID" />
+    </Key>
+    <Property Name="DETALLE_RENDICION_ID" Type="int" Nullable="false" />
+    <Property Name="RENDICIONs_ID" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="USUARIOROL">
+    <End Role="USUARIO" Type="SCP_UVMModel.Store.USUARIOs" Multiplicity="*" />
+    <End Role="ROL" Type="SCP_UVMModel.Store.ROLes" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="ROL">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="USUARIO">
+        <PropertyRef Name="ROLID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PERSONA_JURIDICARENDICION">
+    <End Role="PERSONA_JURIDICA" Type="SCP_UVMModel.Store.PERSONAs_PERSONA_JURIDICAs" Multiplicity="1" />
+    <End Role="RENDICION" Type="SCP_UVMModel.Store.RENDICIONes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PERSONA_JURIDICA">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="RENDICION">
+        <PropertyRef Name="PERSONA_JURIDICAID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PERSONA_JURIDICACAPEX">
+    <End Role="PERSONA_JURIDICA" Type="SCP_UVMModel.Store.PERSONAs_PERSONA_JURIDICAs" Multiplicity="1" />
+    <End Role="CAPEX" Type="SCP_UVMModel.Store.CAPEXes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PERSONA_JURIDICA">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="CAPEX">
+        <PropertyRef Name="PERSONA_JURIDICAID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PERSONA_NATURALOPEX">
+    <End Role="PERSONA_NATURAL" Type="SCP_UVMModel.Store.PERSONAs_PERSONA_NATURALes" Multiplicity="1" />
+    <End Role="OPEX" Type="SCP_UVMModel.Store.OPEXes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PERSONA_NATURAL">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="OPEX">
+        <PropertyRef Name="PERSONA_NATURALID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PERSONA_NATURALPROP_DIPLOMADO">
+    <End Role="PERSONA_NATURAL" Type="SCP_UVMModel.Store.PERSONAs_PERSONA_NATURALes" Multiplicity="1" />
+    <End Role="PROP_DIPLOMADO" Type="SCP_UVMModel.Store.PROP_DIPLOMADOs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PERSONA_NATURAL">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="PROP_DIPLOMADO">
+        <PropertyRef Name="PERSONA_NATURALID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PERSONA_NATURALPAGO_DIPLOMADO">
+    <End Role="PERSONA_NATURAL" Type="SCP_UVMModel.Store.PERSONAs_PERSONA_NATURALes" Multiplicity="1" />
+    <End Role="PAGO_DIPLOMADO" Type="SCP_UVMModel.Store.PAGO_DIPLOMADOs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PERSONA_NATURAL">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="PAGO_DIPLOMADO">
+        <PropertyRef Name="PERSONA_NATURALID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PERSONA_NATURALREEMBOLSO">
+    <End Role="PERSONA_NATURAL" Type="SCP_UVMModel.Store.PERSONAs_PERSONA_NATURALes" Multiplicity="1" />
+    <End Role="REEMBOLSO" Type="SCP_UVMModel.Store.REEMBOLSOs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PERSONA_NATURAL">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="REEMBOLSO">
+        <PropertyRef Name="PERSONA_NATURALID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PERSONA_NATURALRENDICION">
+    <End Role="PERSONA_NATURAL" Type="SCP_UVMModel.Store.PERSONAs_PERSONA_NATURALes" Multiplicity="1" />
+    <End Role="RENDICION" Type="SCP_UVMModel.Store.RENDICIONes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PERSONA_NATURAL">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="RENDICION">
+        <PropertyRef Name="PERSONA_NATURALID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="OPEXFACTURA">
+    <End Role="OPEX" Type="SCP_UVMModel.Store.OPEXes" Multiplicity="1" />
+    <End Role="FACTURA" Type="SCP_UVMModel.Store.FACTURAs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OPEX">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="FACTURA">
+        <PropertyRef Name="OPEXID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="OPEXBOLETA">
+    <End Role="OPEX" Type="SCP_UVMModel.Store.OPEXes" Multiplicity="1" />
+    <End Role="BOLETA" Type="SCP_UVMModel.Store.BOLETAs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OPEX">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="BOLETA">
+        <PropertyRef Name="OPEXID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CAPEXBOLETA">
+    <End Role="CAPEX" Type="SCP_UVMModel.Store.CAPEXes" Multiplicity="1" />
+    <End Role="BOLETA" Type="SCP_UVMModel.Store.BOLETAs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CAPEX">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="BOLETA">
+        <PropertyRef Name="CAPEXID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CAPEXFACTURA">
+    <End Role="CAPEX" Type="SCP_UVMModel.Store.CAPEXes" Multiplicity="1" />
+    <End Role="FACTURA" Type="SCP_UVMModel.Store.FACTURAs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CAPEX">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="FACTURA">
+        <PropertyRef Name="CAPEXID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CONSOLIDADOCARRERA">
+    <End Role="CONSOLIDADO" Type="SCP_UVMModel.Store.CONSOLIDADOs" Multiplicity="1" />
+    <End Role="CARRERA" Type="SCP_UVMModel.Store.PROGRAMAs_CARRERA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CONSOLIDADO">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="CARRERA">
+        <PropertyRef Name="CONSOLIDADOID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CONSOLIDADODIPLOMADO">
+    <End Role="CONSOLIDADO" Type="SCP_UVMModel.Store.CONSOLIDADOs" Multiplicity="1" />
+    <End Role="DIPLOMADO" Type="SCP_UVMModel.Store.PROGRAMAs_DIPLOMADO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CONSOLIDADO">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="DIPLOMADO">
+        <PropertyRef Name="CONSOLIDADOID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CONSOLIDADOMAGISTER">
+    <End Role="CONSOLIDADO" Type="SCP_UVMModel.Store.CONSOLIDADOs" Multiplicity="1" />
+    <End Role="MAGISTER" Type="SCP_UVMModel.Store.PROGRAMAs_MAGISTER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CONSOLIDADO">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="MAGISTER">
+        <PropertyRef Name="CONSOLIDADOID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CONSOLIDADOMES">
+    <End Role="CONSOLIDADO" Type="SCP_UVMModel.Store.CONSOLIDADOs" Multiplicity="1" />
+    <End Role="MES" Type="SCP_UVMModel.Store.MESes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CONSOLIDADO">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="MES">
+        <PropertyRef Name="CONSOLIDADOID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PERSONA_JURIDICASOLICITUD">
+    <End Role="PERSONA_JURIDICA" Type="SCP_UVMModel.Store.PERSONAs_PERSONA_JURIDICAs" Multiplicity="1" />
+    <End Role="SOLICITUD" Type="SCP_UVMModel.Store.SOLICITUDes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PERSONA_JURIDICA">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="SOLICITUD">
+        <PropertyRef Name="PERSONA_JURIDICAID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SOLICITUDCAPEX">
+    <End Role="SOLICITUD" Type="SCP_UVMModel.Store.SOLICITUDes" Multiplicity="*" />
+    <End Role="CAPEX" Type="SCP_UVMModel.Store.CAPEXes" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="CAPEX">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="SOLICITUD">
+        <PropertyRef Name="CAPEXID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SOLICITUDOPEX">
+    <End Role="SOLICITUD" Type="SCP_UVMModel.Store.SOLICITUDes" Multiplicity="*" />
+    <End Role="OPEX" Type="SCP_UVMModel.Store.OPEXes" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="OPEX">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="SOLICITUD">
+        <PropertyRef Name="OPEXID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="MESPAGO_DIPLOMADO">
+    <End Role="MES" Type="SCP_UVMModel.Store.MESes" Multiplicity="*" />
+    <End Role="PAGO_DIPLOMADO" Type="SCP_UVMModel.Store.PAGO_DIPLOMADOs" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="PAGO_DIPLOMADO">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="MES">
+        <PropertyRef Name="PAGO_DIPLOMADO_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SALIDA_TERRENOMES_SALIDA_TERRENO">
+    <End Role="SALIDA_TERRENO" Type="SCP_UVMModel.Store.SALIDA_TERRENOs" Multiplicity="1" />
+    <End Role="SALIDA_TERRENOMES" Type="SCP_UVMModel.Store.SALIDA_TERRENOMES" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SALIDA_TERRENO">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="SALIDA_TERRENOMES">
+        <PropertyRef Name="SALIDA_TERRENO_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SALIDA_TERRENOMES_MES">
+    <End Role="SALIDA_TERRENOMES" Type="SCP_UVMModel.Store.SALIDA_TERRENOMES" Multiplicity="*" />
+    <End Role="MES" Type="SCP_UVMModel.Store.MESes" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="MES">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="SALIDA_TERRENOMES">
+        <PropertyRef Name="MES_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PERSONA_NATURALSOLICITUD_PERSONA_NATURAL">
+    <End Role="PERSONA_NATURAL" Type="SCP_UVMModel.Store.PERSONAs_PERSONA_NATURALes" Multiplicity="1" />
+    <End Role="PERSONA_NATURALSOLICITUD" Type="SCP_UVMModel.Store.PERSONA_NATURALSOLICITUD" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PERSONA_NATURAL">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="PERSONA_NATURALSOLICITUD">
+        <PropertyRef Name="PERSONA_NATURAL_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PERSONA_NATURALSOLICITUD_SOLICITUD">
+    <End Role="PERSONA_NATURALSOLICITUD" Type="SCP_UVMModel.Store.PERSONA_NATURALSOLICITUD" Multiplicity="*" />
+    <End Role="SOLICITUD" Type="SCP_UVMModel.Store.SOLICITUDes" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="SOLICITUD">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="PERSONA_NATURALSOLICITUD">
+        <PropertyRef Name="SOLICITUDs_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CAMBIOOPEX_CAMBIO">
+    <End Role="CAMBIO" Type="SCP_UVMModel.Store.CAMBIOs" Multiplicity="1" />
+    <End Role="CAMBIOOPEX" Type="SCP_UVMModel.Store.CAMBIOOPEX" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CAMBIO">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="CAMBIOOPEX">
+        <PropertyRef Name="CAMBIOs_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CAMBIOOPEX_OPEX">
+    <End Role="CAMBIOOPEX" Type="SCP_UVMModel.Store.CAMBIOOPEX" Multiplicity="*" />
+    <End Role="OPEX" Type="SCP_UVMModel.Store.OPEXes" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="OPEX">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="CAMBIOOPEX">
+        <PropertyRef Name="OPEXes_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MAGISTEROPEX_MAGISTER">
+    <End Role="MAGISTER" Type="SCP_UVMModel.Store.PROGRAMAs_MAGISTER" Multiplicity="1" />
+    <End Role="MAGISTEROPEX" Type="SCP_UVMModel.Store.MAGISTEROPEX" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MAGISTER">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="MAGISTEROPEX">
+        <PropertyRef Name="MAGISTERs_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MAGISTEROPEX_OPEX">
+    <End Role="MAGISTEROPEX" Type="SCP_UVMModel.Store.MAGISTEROPEX" Multiplicity="*" />
+    <End Role="OPEX" Type="SCP_UVMModel.Store.OPEXes" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="OPEX">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="MAGISTEROPEX">
+        <PropertyRef Name="OPEXes_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DIPLOMADOOPEX_DIPLOMADO">
+    <End Role="DIPLOMADO" Type="SCP_UVMModel.Store.PROGRAMAs_DIPLOMADO" Multiplicity="1" />
+    <End Role="DIPLOMADOOPEX" Type="SCP_UVMModel.Store.DIPLOMADOOPEX" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DIPLOMADO">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="DIPLOMADOOPEX">
+        <PropertyRef Name="DIPLOMADOes_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DIPLOMADOOPEX_OPEX">
+    <End Role="DIPLOMADOOPEX" Type="SCP_UVMModel.Store.DIPLOMADOOPEX" Multiplicity="*" />
+    <End Role="OPEX" Type="SCP_UVMModel.Store.OPEXes" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="OPEX">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="DIPLOMADOOPEX">
+        <PropertyRef Name="OPEXes_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CARRERAOPEX_CARRERA">
+    <End Role="CARRERA" Type="SCP_UVMModel.Store.PROGRAMAs_CARRERA" Multiplicity="1" />
+    <End Role="CARRERAOPEX" Type="SCP_UVMModel.Store.CARRERAOPEX" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CARRERA">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="CARRERAOPEX">
+        <PropertyRef Name="CARRERAs_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CARRERAOPEX_OPEX">
+    <End Role="CARRERAOPEX" Type="SCP_UVMModel.Store.CARRERAOPEX" Multiplicity="*" />
+    <End Role="OPEX" Type="SCP_UVMModel.Store.OPEXes" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="OPEX">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="CARRERAOPEX">
+        <PropertyRef Name="OPEXes_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CARRERACAPEX_CARRERA">
+    <End Role="CARRERA" Type="SCP_UVMModel.Store.PROGRAMAs_CARRERA" Multiplicity="1" />
+    <End Role="CARRERACAPEX" Type="SCP_UVMModel.Store.CARRERACAPEX" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CARRERA">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="CARRERACAPEX">
+        <PropertyRef Name="CARRERAs_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CARRERACAPEX_CAPEX">
+    <End Role="CARRERACAPEX" Type="SCP_UVMModel.Store.CARRERACAPEX" Multiplicity="*" />
+    <End Role="CAPEX" Type="SCP_UVMModel.Store.CAPEXes" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="CAPEX">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="CARRERACAPEX">
+        <PropertyRef Name="CAPEXes_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DIPLOMADOPROP_DIPLOMADO_DIPLOMADO">
+    <End Role="DIPLOMADO" Type="SCP_UVMModel.Store.PROGRAMAs_DIPLOMADO" Multiplicity="1" />
+    <End Role="DIPLOMADOPROP_DIPLOMADO" Type="SCP_UVMModel.Store.DIPLOMADOPROP_DIPLOMADO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DIPLOMADO">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="DIPLOMADOPROP_DIPLOMADO">
+        <PropertyRef Name="DIPLOMADOes_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DIPLOMADOPROP_DIPLOMADO_PROP_DIPLOMADO">
+    <End Role="DIPLOMADOPROP_DIPLOMADO" Type="SCP_UVMModel.Store.DIPLOMADOPROP_DIPLOMADO" Multiplicity="*" />
+    <End Role="PROP_DIPLOMADO" Type="SCP_UVMModel.Store.PROP_DIPLOMADOs" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="PROP_DIPLOMADO">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="DIPLOMADOPROP_DIPLOMADO">
+        <PropertyRef Name="PROP_DIPLOMADO_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DETALLE_RENDICIONRENDICION_DETALLE_RENDICION">
+    <End Role="DETALLE_RENDICION" Type="SCP_UVMModel.Store.DETALLE_RENDICION" Multiplicity="1" />
+    <End Role="DETALLE_RENDICIONRENDICION" Type="SCP_UVMModel.Store.DETALLE_RENDICIONRENDICION" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DETALLE_RENDICION">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="DETALLE_RENDICIONRENDICION">
+        <PropertyRef Name="DETALLE_RENDICION_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DETALLE_RENDICIONRENDICION_RENDICION">
+    <End Role="DETALLE_RENDICIONRENDICION" Type="SCP_UVMModel.Store.DETALLE_RENDICIONRENDICION" Multiplicity="*" />
+    <End Role="RENDICION" Type="SCP_UVMModel.Store.RENDICIONes" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="RENDICION">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="DETALLE_RENDICIONRENDICION">
+        <PropertyRef Name="RENDICIONs_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PERSONA_JURIDICAs_inherits_PERSONA">
+    <End Role="PERSONA" Type="SCP_UVMModel.Store.PERSONAs" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="PERSONA_JURIDICAs" Type="SCP_UVMModel.Store.PERSONAs_PERSONA_JURIDICAs" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="PERSONA">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="PERSONA_JURIDICAs">
+        <PropertyRef Name="ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PERSONA_NATURALes_inherits_PERSONA">
+    <End Role="PERSONA" Type="SCP_UVMModel.Store.PERSONAs" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="PERSONA_NATURALes" Type="SCP_UVMModel.Store.PERSONAs_PERSONA_NATURALes" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="PERSONA">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="PERSONA_NATURALes">
+        <PropertyRef Name="ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CARRERA_inherits_PROGRAMA">
+    <End Role="PROGRAMA" Type="SCP_UVMModel.Store.PROGRAMAs" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="CARRERA" Type="SCP_UVMModel.Store.PROGRAMAs_CARRERA" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="PROGRAMA">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="CARRERA">
+        <PropertyRef Name="ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DIPLOMADO_inherits_PROGRAMA">
+    <End Role="PROGRAMA" Type="SCP_UVMModel.Store.PROGRAMAs" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="DIPLOMADO" Type="SCP_UVMModel.Store.PROGRAMAs_DIPLOMADO" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="PROGRAMA">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="DIPLOMADO">
+        <PropertyRef Name="ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MAGISTER_inherits_PROGRAMA">
+    <End Role="PROGRAMA" Type="SCP_UVMModel.Store.PROGRAMAs" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="MAGISTER" Type="SCP_UVMModel.Store.PROGRAMAs_MAGISTER" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="PROGRAMA">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="MAGISTER">
+        <PropertyRef Name="ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SCP_UVMModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="SCP_UVMEntities" annotation:LazyLoadingEnabled="true" >
+          <EntitySet Name="USUARIOs" EntityType="SCP_UVMModel.USUARIO" />
+          <EntitySet Name="ROLes" EntityType="SCP_UVMModel.ROL" />
+          <EntitySet Name="PROGRAMAs" EntityType="SCP_UVMModel.PROGRAMA" />
+          <EntitySet Name="PERSONAs" EntityType="SCP_UVMModel.PERSONA" />
+          <EntitySet Name="CONSOLIDADOs" EntityType="SCP_UVMModel.CONSOLIDADO" />
+          <EntitySet Name="SALIDA_TERRENOs" EntityType="SCP_UVMModel.SALIDA_TERRENO" />
+          <EntitySet Name="OPEXes" EntityType="SCP_UVMModel.OPEX" />
+          <EntitySet Name="CAPEXes" EntityType="SCP_UVMModel.CAPEX" />
+          <EntitySet Name="PROP_DIPLOMADOs" EntityType="SCP_UVMModel.PROP_DIPLOMADO" />
+          <EntitySet Name="PAGO_DIPLOMADOs" EntityType="SCP_UVMModel.PAGO_DIPLOMADO" />
+          <EntitySet Name="REEMBOLSOs" EntityType="SCP_UVMModel.REEMBOLSO" />
+          <EntitySet Name="RENDICIONes" EntityType="SCP_UVMModel.RENDICION" />
+          <AssociationSet Name="USUARIOROL" Association="SCP_UVMModel.USUARIOROL">
+            <End Role="USUARIO" EntitySet="USUARIOs" />
+            <End Role="ROL" EntitySet="ROLes" />
+          </AssociationSet>
+          <AssociationSet Name="PERSONA_JURIDICARENDICION" Association="SCP_UVMModel.PERSONA_JURIDICARENDICION">
+            <End Role="PERSONA_JURIDICA" EntitySet="PERSONAs" />
+            <End Role="RENDICION" EntitySet="RENDICIONes" />
+          </AssociationSet>
+          <AssociationSet Name="PERSONA_JURIDICACAPEX" Association="SCP_UVMModel.PERSONA_JURIDICACAPEX">
+            <End Role="PERSONA_JURIDICA" EntitySet="PERSONAs" />
+            <End Role="CAPEX" EntitySet="CAPEXes" />
+          </AssociationSet>
+          <AssociationSet Name="PERSONA_NATURALOPEX" Association="SCP_UVMModel.PERSONA_NATURALOPEX">
+            <End Role="PERSONA_NATURAL" EntitySet="PERSONAs" />
+            <End Role="OPEX" EntitySet="OPEXes" />
+          </AssociationSet>
+          <AssociationSet Name="PERSONA_NATURALPROP_DIPLOMADO" Association="SCP_UVMModel.PERSONA_NATURALPROP_DIPLOMADO">
+            <End Role="PERSONA_NATURAL" EntitySet="PERSONAs" />
+            <End Role="PROP_DIPLOMADO" EntitySet="PROP_DIPLOMADOs" />
+          </AssociationSet>
+          <AssociationSet Name="PERSONA_NATURALPAGO_DIPLOMADO" Association="SCP_UVMModel.PERSONA_NATURALPAGO_DIPLOMADO">
+            <End Role="PERSONA_NATURAL" EntitySet="PERSONAs" />
+            <End Role="PAGO_DIPLOMADO" EntitySet="PAGO_DIPLOMADOs" />
+          </AssociationSet>
+          <AssociationSet Name="PERSONA_NATURALREEMBOLSO" Association="SCP_UVMModel.PERSONA_NATURALREEMBOLSO">
+            <End Role="PERSONA_NATURAL" EntitySet="PERSONAs" />
+            <End Role="REEMBOLSO" EntitySet="REEMBOLSOs" />
+          </AssociationSet>
+          <AssociationSet Name="PERSONA_NATURALRENDICION" Association="SCP_UVMModel.PERSONA_NATURALRENDICION">
+            <End Role="PERSONA_NATURAL" EntitySet="PERSONAs" />
+            <End Role="RENDICION" EntitySet="RENDICIONes" />
+          </AssociationSet>
+          <EntitySet Name="FACTURAs" EntityType="SCP_UVMModel.FACTURA" />
+          <EntitySet Name="BOLETAs" EntityType="SCP_UVMModel.BOLETA" />
+          <AssociationSet Name="OPEXFACTURA" Association="SCP_UVMModel.OPEXFACTURA">
+            <End Role="OPEX" EntitySet="OPEXes" />
+            <End Role="FACTURA" EntitySet="FACTURAs" />
+          </AssociationSet>
+          <AssociationSet Name="OPEXBOLETA" Association="SCP_UVMModel.OPEXBOLETA">
+            <End Role="OPEX" EntitySet="OPEXes" />
+            <End Role="BOLETA" EntitySet="BOLETAs" />
+          </AssociationSet>
+          <AssociationSet Name="CAPEXBOLETA" Association="SCP_UVMModel.CAPEXBOLETA">
+            <End Role="CAPEX" EntitySet="CAPEXes" />
+            <End Role="BOLETA" EntitySet="BOLETAs" />
+          </AssociationSet>
+          <AssociationSet Name="CAPEXFACTURA" Association="SCP_UVMModel.CAPEXFACTURA">
+            <End Role="CAPEX" EntitySet="CAPEXes" />
+            <End Role="FACTURA" EntitySet="FACTURAs" />
+          </AssociationSet>
+          <AssociationSet Name="CONSOLIDADOCARRERA" Association="SCP_UVMModel.CONSOLIDADOCARRERA">
+            <End Role="CONSOLIDADO" EntitySet="CONSOLIDADOs" />
+            <End Role="CARRERA" EntitySet="PROGRAMAs" />
+          </AssociationSet>
+          <AssociationSet Name="CONSOLIDADODIPLOMADO" Association="SCP_UVMModel.CONSOLIDADODIPLOMADO">
+            <End Role="CONSOLIDADO" EntitySet="CONSOLIDADOs" />
+            <End Role="DIPLOMADO" EntitySet="PROGRAMAs" />
+          </AssociationSet>
+          <AssociationSet Name="CONSOLIDADOMAGISTER" Association="SCP_UVMModel.CONSOLIDADOMAGISTER">
+            <End Role="CONSOLIDADO" EntitySet="CONSOLIDADOs" />
+            <End Role="MAGISTER" EntitySet="PROGRAMAs" />
+          </AssociationSet>
+          <EntitySet Name="MESes" EntityType="SCP_UVMModel.MES" />
+          <AssociationSet Name="CONSOLIDADOMES" Association="SCP_UVMModel.CONSOLIDADOMES">
+            <End Role="CONSOLIDADO" EntitySet="CONSOLIDADOs" />
+            <End Role="MES" EntitySet="MESes" />
+          </AssociationSet>
+          <AssociationSet Name="SALIDA_TERRENOMES" Association="SCP_UVMModel.SALIDA_TERRENOMES">
+            <End Role="SALIDA_TERRENO" EntitySet="SALIDA_TERRENOs" />
+            <End Role="MES" EntitySet="MESes" />
+          </AssociationSet>
+          <EntitySet Name="SOLICITUDes" EntityType="SCP_UVMModel.SOLICITUD" />
+          <AssociationSet Name="PERSONA_JURIDICASOLICITUD" Association="SCP_UVMModel.PERSONA_JURIDICASOLICITUD">
+            <End Role="PERSONA_JURIDICA" EntitySet="PERSONAs" />
+            <End Role="SOLICITUD" EntitySet="SOLICITUDes" />
+          </AssociationSet>
+          <AssociationSet Name="SOLICITUDCAPEX" Association="SCP_UVMModel.SOLICITUDCAPEX">
+            <End Role="SOLICITUD" EntitySet="SOLICITUDes" />
+            <End Role="CAPEX" EntitySet="CAPEXes" />
+          </AssociationSet>
+          <AssociationSet Name="SOLICITUDOPEX" Association="SCP_UVMModel.SOLICITUDOPEX">
+            <End Role="SOLICITUD" EntitySet="SOLICITUDes" />
+            <End Role="OPEX" EntitySet="OPEXes" />
+          </AssociationSet>
+          <AssociationSet Name="PERSONA_NATURALSOLICITUD" Association="SCP_UVMModel.PERSONA_NATURALSOLICITUD">
+            <End Role="PERSONA_NATURAL" EntitySet="PERSONAs" />
+            <End Role="SOLICITUD" EntitySet="SOLICITUDes" />
+          </AssociationSet>
+          <EntitySet Name="CAMBIOs" EntityType="SCP_UVMModel.CAMBIO" />
+          <AssociationSet Name="CAMBIOOPEX" Association="SCP_UVMModel.CAMBIOOPEX">
+            <End Role="CAMBIO" EntitySet="CAMBIOs" />
+            <End Role="OPEX" EntitySet="OPEXes" />
+          </AssociationSet>
+          <AssociationSet Name="MAGISTEROPEX" Association="SCP_UVMModel.MAGISTEROPEX">
+            <End Role="MAGISTER" EntitySet="PROGRAMAs" />
+            <End Role="OPEX" EntitySet="OPEXes" />
+          </AssociationSet>
+          <AssociationSet Name="DIPLOMADOOPEX" Association="SCP_UVMModel.DIPLOMADOOPEX">
+            <End Role="DIPLOMADO" EntitySet="PROGRAMAs" />
+            <End Role="OPEX" EntitySet="OPEXes" />
+          </AssociationSet>
+          <AssociationSet Name="CARRERAOPEX" Association="SCP_UVMModel.CARRERAOPEX">
+            <End Role="CARRERA" EntitySet="PROGRAMAs" />
+            <End Role="OPEX" EntitySet="OPEXes" />
+          </AssociationSet>
+          <AssociationSet Name="CARRERACAPEX" Association="SCP_UVMModel.CARRERACAPEX">
+            <End Role="CARRERA" EntitySet="PROGRAMAs" />
+            <End Role="CAPEX" EntitySet="CAPEXes" />
+          </AssociationSet>
+          <AssociationSet Name="DIPLOMADOPROP_DIPLOMADO" Association="SCP_UVMModel.DIPLOMADOPROP_DIPLOMADO">
+            <End Role="DIPLOMADO" EntitySet="PROGRAMAs" />
+            <End Role="PROP_DIPLOMADO" EntitySet="PROP_DIPLOMADOs" />
+          </AssociationSet>
+          <AssociationSet Name="MESPAGO_DIPLOMADO" Association="SCP_UVMModel.MESPAGO_DIPLOMADO">
+            <End Role="MES" EntitySet="MESes" />
+            <End Role="PAGO_DIPLOMADO" EntitySet="PAGO_DIPLOMADOs" />
+          </AssociationSet>
+          <EntitySet Name="DETALLE_RENDICION" EntityType="SCP_UVMModel.DETALLE_RENDICION" />
+          <AssociationSet Name="DETALLE_RENDICIONRENDICION" Association="SCP_UVMModel.DETALLE_RENDICIONRENDICION">
+            <End Role="DETALLE_RENDICION" EntitySet="DETALLE_RENDICION" />
+            <End Role="RENDICION" EntitySet="RENDICIONes" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="USUARIO">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="ROL" Relationship="SCP_UVMModel.USUARIOROL" FromRole="USUARIO" ToRole="ROL" />
+          <Property Name="ESTADO" Type="Boolean" Nullable="false" />
+          <Property Name="NOMBRE_USUARIO" Type="String" Nullable="false" />
+          <Property Name="CONTRASENA" Type="String" Nullable="false" />
+          <Property Name="ROLID" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ROL">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="USUARIOs" Relationship="SCP_UVMModel.USUARIOROL" FromRole="ROL" ToRole="USUARIO" />
+          <Property Name="ESTADO" Type="Boolean" Nullable="false" />
+          <Property Name="NOMBRE_ROL" Type="String" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PROGRAMA">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ESTADO" Type="Boolean" Nullable="false" />
+          <Property Name="NOMBRE" Type="String" Nullable="false" />
+          <Property Name="U_EXPLOTACION" Type="Int32" Nullable="false" />
+          <Property Name="DEPARTAMENTO" Type="Int64" Nullable="false" />
+          <Property Name="PROD_TITULO" Type="Int32" Nullable="false" />
+          <Property Name="DISCIPLINA" Type="Int64" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DIPLOMADO" BaseType="SCP_UVMModel.PROGRAMA">
+          <Property Name="ACTIVITY_CODE" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="CONSOLIDADO" Relationship="SCP_UVMModel.CONSOLIDADODIPLOMADO" FromRole="DIPLOMADO" ToRole="CONSOLIDADO" />
+          <Property Name="CONSOLIDADOID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="OPEXes" Relationship="SCP_UVMModel.DIPLOMADOOPEX" FromRole="DIPLOMADO" ToRole="OPEX" />
+          <NavigationProperty Name="PROP_DIPLOMADO" Relationship="SCP_UVMModel.DIPLOMADOPROP_DIPLOMADO" FromRole="DIPLOMADO" ToRole="PROP_DIPLOMADO" />
+        </EntityType>
+        <EntityType Name="CARRERA" BaseType="SCP_UVMModel.PROGRAMA" >
+          <NavigationProperty Name="CONSOLIDADO" Relationship="SCP_UVMModel.CONSOLIDADOCARRERA" FromRole="CARRERA" ToRole="CONSOLIDADO" />
+          <Property Name="CONSOLIDADOID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="OPEXes" Relationship="SCP_UVMModel.CARRERAOPEX" FromRole="CARRERA" ToRole="OPEX" />
+          <NavigationProperty Name="CAPEXes" Relationship="SCP_UVMModel.CARRERACAPEX" FromRole="CARRERA" ToRole="CAPEX" />
+        </EntityType>
+        <EntityType Name="MAGISTER" BaseType="SCP_UVMModel.PROGRAMA">
+          <NavigationProperty Name="CONSOLIDADO" Relationship="SCP_UVMModel.CONSOLIDADOMAGISTER" FromRole="MAGISTER" ToRole="CONSOLIDADO" />
+          <Property Name="CONSOLIDADOID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="OPEXes" Relationship="SCP_UVMModel.MAGISTEROPEX" FromRole="MAGISTER" ToRole="OPEX" />
+        </EntityType>
+        <EntityType Name="PERSONA">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ESTADO" Type="Boolean" Nullable="false" />
+          <Property Name="NOMBRE" Type="String" Nullable="false" />
+          <Property Name="RUT" Type="String" Nullable="false" />
+          <Property Name="DIGITO_VERIFICADOR" Type="String" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PERSONA_NATURALes" BaseType="SCP_UVMModel.PERSONA" >
+          <NavigationProperty Name="OPEXes" Relationship="SCP_UVMModel.PERSONA_NATURALOPEX" FromRole="PERSONA_NATURAL" ToRole="OPEX" />
+          <NavigationProperty Name="PROP_DIPLOMADO" Relationship="SCP_UVMModel.PERSONA_NATURALPROP_DIPLOMADO" FromRole="PERSONA_NATURAL" ToRole="PROP_DIPLOMADO" />
+          <NavigationProperty Name="PAGO_DIPLOMADO" Relationship="SCP_UVMModel.PERSONA_NATURALPAGO_DIPLOMADO" FromRole="PERSONA_NATURAL" ToRole="PAGO_DIPLOMADO" />
+          <NavigationProperty Name="REEMBOLSOes" Relationship="SCP_UVMModel.PERSONA_NATURALREEMBOLSO" FromRole="PERSONA_NATURAL" ToRole="REEMBOLSO" />
+          <NavigationProperty Name="RENDICIONs" Relationship="SCP_UVMModel.PERSONA_NATURALRENDICION" FromRole="PERSONA_NATURAL" ToRole="RENDICION" />
+          <Property Name="APELLIDO_PATERNO" Type="String" Nullable="false" />
+          <Property Name="APELLIDO_MATERNO" Type="String" Nullable="false" />
+          <Property Name="ID_EMPLEADO" Type="Int64" Nullable="false" />
+          <Property Name="CORREO" Type="String" Nullable="false" />
+          <NavigationProperty Name="SOLICITUDs" Relationship="SCP_UVMModel.PERSONA_NATURALSOLICITUD" FromRole="PERSONA_NATURAL" ToRole="SOLICITUD" />
+        </EntityType>
+        <EntityType Name="PERSONA_JURIDICAs" BaseType="SCP_UVMModel.PERSONA" >
+          <NavigationProperty Name="RENDICIONs" Relationship="SCP_UVMModel.PERSONA_JURIDICARENDICION" FromRole="PERSONA_JURIDICA" ToRole="RENDICION" />
+          <NavigationProperty Name="CAPEXes" Relationship="SCP_UVMModel.PERSONA_JURIDICACAPEX" FromRole="PERSONA_JURIDICA" ToRole="CAPEX" />
+          <NavigationProperty Name="SOLICITUDs" Relationship="SCP_UVMModel.PERSONA_JURIDICASOLICITUD" FromRole="PERSONA_JURIDICA" ToRole="SOLICITUD" />
+        </EntityType>
+        <EntityType Name="CONSOLIDADO">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="CARRERAs" Relationship="SCP_UVMModel.CONSOLIDADOCARRERA" FromRole="CONSOLIDADO" ToRole="CARRERA" />
+          <NavigationProperty Name="DIPLOMADOes" Relationship="SCP_UVMModel.CONSOLIDADODIPLOMADO" FromRole="CONSOLIDADO" ToRole="DIPLOMADO" />
+          <NavigationProperty Name="MAGISTERs" Relationship="SCP_UVMModel.CONSOLIDADOMAGISTER" FromRole="CONSOLIDADO" ToRole="MAGISTER" />
+          <Property Name="ESTADO" Type="Boolean" Nullable="false" />
+          <Property Name="MONTO" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="MES" Relationship="SCP_UVMModel.CONSOLIDADOMES" FromRole="CONSOLIDADO" ToRole="MES" />
+          <Property Name="TOTAL" Type="Int64" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SALIDA_TERRENO">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="MES" Relationship="SCP_UVMModel.SALIDA_TERRENOMES" FromRole="SALIDA_TERRENO" ToRole="MES" />
+          <Property Name="ESTADO" Type="Boolean" Nullable="false" />
+          <Property Name="TIPO_SALIDA" Type="String" Nullable="false" />
+          <Property Name="UBICACION" Type="String" Nullable="false" />
+          <Property Name="CANTIDAD_ALUMNOS" Type="Int16" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OPEX">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="PERSONA_NATURAL" Relationship="SCP_UVMModel.PERSONA_NATURALOPEX" FromRole="OPEX" ToRole="PERSONA_NATURAL" />
+          <Property Name="ESTADO" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="FACTURAs" Relationship="SCP_UVMModel.OPEXFACTURA" FromRole="OPEX" ToRole="FACTURA" />
+          <NavigationProperty Name="BOLETAs" Relationship="SCP_UVMModel.OPEXBOLETA" FromRole="OPEX" ToRole="BOLETA" />
+          <NavigationProperty Name="SOLICITUDs" Relationship="SCP_UVMModel.SOLICITUDOPEX" FromRole="OPEX" ToRole="SOLICITUD" />
+          <Property Name="MONTO_NETO" Type="Int64" Nullable="false" />
+          <Property Name="IVA" Type="Int64" Nullable="false" />
+          <Property Name="TOTAL" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="CAMBIOs" Relationship="SCP_UVMModel.CAMBIOOPEX" FromRole="OPEX" ToRole="CAMBIO" />
+          <Property Name="ESTADO_OPEX" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="MAGISTERs" Relationship="SCP_UVMModel.MAGISTEROPEX" FromRole="OPEX" ToRole="MAGISTER" />
+          <NavigationProperty Name="DIPLOMADOes" Relationship="SCP_UVMModel.DIPLOMADOOPEX" FromRole="OPEX" ToRole="DIPLOMADO" />
+          <NavigationProperty Name="CARRERAs" Relationship="SCP_UVMModel.CARRERAOPEX" FromRole="OPEX" ToRole="CARRERA" />
+          <Property Name="RECEPCION" Type="Boolean" Nullable="false" />
+          <Property Name="VALIDACION" Type="Boolean" Nullable="false" />
+          <Property Name="PERSONA_NATURALID" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CAPEX">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="PERSONA_JURIDICA" Relationship="SCP_UVMModel.PERSONA_JURIDICACAPEX" FromRole="CAPEX" ToRole="PERSONA_JURIDICA" />
+          <Property Name="ESTADO" Type="Boolean" Nullable="false" />
+          <Property Name="DETALLE" Type="String" Nullable="false" />
+          <NavigationProperty Name="BOLETAs" Relationship="SCP_UVMModel.CAPEXBOLETA" FromRole="CAPEX" ToRole="BOLETA" />
+          <NavigationProperty Name="FACTURAs" Relationship="SCP_UVMModel.CAPEXFACTURA" FromRole="CAPEX" ToRole="FACTURA" />
+          <NavigationProperty Name="SOLICITUDs" Relationship="SCP_UVMModel.SOLICITUDCAPEX" FromRole="CAPEX" ToRole="SOLICITUD" />
+          <NavigationProperty Name="CARRERAs" Relationship="SCP_UVMModel.CARRERACAPEX" FromRole="CAPEX" ToRole="CARRERA" />
+          <Property Name="RECEPCION" Type="Boolean" Nullable="false" />
+          <Property Name="VALIDACION" Type="Boolean" Nullable="false" />
+          <Property Name="PERSONA_JURIDICAID" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PROP_DIPLOMADO">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ESTADO" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="PERSONA_NATURAL" Relationship="SCP_UVMModel.PERSONA_NATURALPROP_DIPLOMADO" FromRole="PROP_DIPLOMADO" ToRole="PERSONA_NATURAL" />
+          <NavigationProperty Name="DIPLOMADOes" Relationship="SCP_UVMModel.DIPLOMADOPROP_DIPLOMADO" FromRole="PROP_DIPLOMADO" ToRole="DIPLOMADO" />
+          <Property Name="RESPONSABLE" Type="String" Nullable="false" />
+          <Property Name="MODALIDAD" Type="String" Nullable="false" />
+          <Property Name="FECHA_INICIO" Type="DateTime" Nullable="false" />
+          <Property Name="FECHA_TERMINO" Type="DateTime" Nullable="false" />
+          <Property Name="CANTIDAD_MODULO" Type="Int16" Nullable="false" />
+          <Property Name="CANTIDAD_ALUMNO" Type="Int16" Nullable="false" />
+          <Property Name="COSTO" Type="Int64" Nullable="false" />
+          <Property Name="INGRESO_NETO" Type="Int64" Nullable="false" />
+          <Property Name="COSTO_DOCENTE" Type="Int64" Nullable="false" />
+          <Property Name="COSTO_ACADEMICO" Type="Int64" Nullable="false" />
+          <Property Name="OTROS_COSTOS" Type="Int64" Nullable="false" />
+          <Property Name="TOTAL" Type="Int64" Nullable="false" />
+          <Property Name="PERSONA_NATURALID" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PAGO_DIPLOMADO">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="PERSONA_NATURAL" Relationship="SCP_UVMModel.PERSONA_NATURALPAGO_DIPLOMADO" FromRole="PAGO_DIPLOMADO" ToRole="PERSONA_NATURAL" />
+          <Property Name="ESTADO" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="MES" Relationship="SCP_UVMModel.MESPAGO_DIPLOMADO" FromRole="PAGO_DIPLOMADO" ToRole="MES" />
+          <Property Name="PROGRAMA" Type="String" Nullable="false" />
+          <Property Name="MOTIVO" Type="String" Nullable="false" />
+          <Property Name="TOTAL" Type="Int64" Nullable="false" />
+          <Property Name="PERSONA_NATURALID" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="REEMBOLSO">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="PERSONA_NATURAL" Relationship="SCP_UVMModel.PERSONA_NATURALREEMBOLSO" FromRole="REEMBOLSO" ToRole="PERSONA_NATURAL" />
+          <Property Name="ESTADO" Type="Boolean" Nullable="false" />
+          <Property Name="DESCRIPCION" Type="String" Nullable="false" />
+          <Property Name="ESTADO_REEMBOLSO" Type="String" Nullable="false" />
+          <Property Name="FECHA" Type="DateTime" Nullable="false" />
+          <Property Name="DETALLE" Type="String" Nullable="false" />
+          <Property Name="MONTO" Type="Int64" Nullable="false" />
+          <Property Name="TOTAL" Type="Int64" Nullable="false" />
+          <Property Name="PERSONA_NATURALID" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RENDICION">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="PERSONA_JURIDICA" Relationship="SCP_UVMModel.PERSONA_JURIDICARENDICION" FromRole="RENDICION" ToRole="PERSONA_JURIDICA" />
+          <Property Name="ESTADO" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="PERSONA_NATURAL" Relationship="SCP_UVMModel.PERSONA_NATURALRENDICION" FromRole="RENDICION" ToRole="PERSONA_NATURAL" />
+          <Property Name="DESCRIPCION" Type="String" Nullable="false" />
+          <Property Name="ESTADO_ANTICIPO" Type="String" Nullable="false" />
+          <Property Name="FECHA" Type="DateTime" Nullable="false" />
+          <NavigationProperty Name="DETALLE_RENDICION" Relationship="SCP_UVMModel.DETALLE_RENDICIONRENDICION" FromRole="RENDICION" ToRole="DETALLE_RENDICION" />
+          <Property Name="ID_RENDICION" Type="Int32" Nullable="false" />
+          <Property Name="DETALLE_VARIOS" Type="String" Nullable="false" />
+          <Property Name="PERSONA_NATURALID" Type="Int32" Nullable="false" />
+          <Property Name="PERSONA_JURIDICAID" Type="Int32" Nullable="false" />
+        </EntityType>
+        <Association Name="USUARIOROL">
+          <End Type="SCP_UVMModel.USUARIO" Role="USUARIO" Multiplicity="*" />
+          <End Type="SCP_UVMModel.ROL" Role="ROL" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="ROL">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="USUARIO">
+              <PropertyRef Name="ROLID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PERSONA_JURIDICARENDICION">
+          <End Type="SCP_UVMModel.PERSONA_JURIDICAs" Role="PERSONA_JURIDICA" Multiplicity="1" />
+          <End Type="SCP_UVMModel.RENDICION" Role="RENDICION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PERSONA_JURIDICA">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="RENDICION">
+              <PropertyRef Name="PERSONA_JURIDICAID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PERSONA_JURIDICACAPEX">
+          <End Type="SCP_UVMModel.PERSONA_JURIDICAs" Role="PERSONA_JURIDICA" Multiplicity="1" />
+          <End Type="SCP_UVMModel.CAPEX" Role="CAPEX" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PERSONA_JURIDICA">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="CAPEX">
+              <PropertyRef Name="PERSONA_JURIDICAID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PERSONA_NATURALOPEX">
+          <End Type="SCP_UVMModel.PERSONA_NATURALes" Role="PERSONA_NATURAL" Multiplicity="1" />
+          <End Type="SCP_UVMModel.OPEX" Role="OPEX" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PERSONA_NATURAL">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="OPEX">
+              <PropertyRef Name="PERSONA_NATURALID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PERSONA_NATURALPROP_DIPLOMADO">
+          <End Type="SCP_UVMModel.PERSONA_NATURALes" Role="PERSONA_NATURAL" Multiplicity="1" />
+          <End Type="SCP_UVMModel.PROP_DIPLOMADO" Role="PROP_DIPLOMADO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PERSONA_NATURAL">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="PROP_DIPLOMADO">
+              <PropertyRef Name="PERSONA_NATURALID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PERSONA_NATURALPAGO_DIPLOMADO">
+          <End Type="SCP_UVMModel.PERSONA_NATURALes" Role="PERSONA_NATURAL" Multiplicity="1" />
+          <End Type="SCP_UVMModel.PAGO_DIPLOMADO" Role="PAGO_DIPLOMADO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PERSONA_NATURAL">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="PAGO_DIPLOMADO">
+              <PropertyRef Name="PERSONA_NATURALID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PERSONA_NATURALREEMBOLSO">
+          <End Type="SCP_UVMModel.PERSONA_NATURALes" Role="PERSONA_NATURAL" Multiplicity="1" />
+          <End Type="SCP_UVMModel.REEMBOLSO" Role="REEMBOLSO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PERSONA_NATURAL">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="REEMBOLSO">
+              <PropertyRef Name="PERSONA_NATURALID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PERSONA_NATURALRENDICION">
+          <End Type="SCP_UVMModel.PERSONA_NATURALes" Role="PERSONA_NATURAL" Multiplicity="1" />
+          <End Type="SCP_UVMModel.RENDICION" Role="RENDICION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PERSONA_NATURAL">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="RENDICION">
+              <PropertyRef Name="PERSONA_NATURALID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="FACTURA">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Name="NUMERO_FACTURA" Type="Int64" Nullable="false" />
+          <Property Name="FECHA_FACTURA" Type="DateTime" Nullable="false" />
+          <Property Name="MONTO" Type="Int64" Nullable="false" />
+          <Property Name="DETALLE" Type="String" Nullable="false" />
+          <NavigationProperty Name="OPEX" Relationship="SCP_UVMModel.OPEXFACTURA" FromRole="FACTURA" ToRole="OPEX" />
+          <Property Name="OPEXID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="CAPEX" Relationship="SCP_UVMModel.CAPEXFACTURA" FromRole="FACTURA" ToRole="CAPEX" />
+          <Property Name="CAPEXID" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="BOLETA" >
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Name="NUMERO_BOLETA" Type="Int64" Nullable="false" />
+          <Property Name="FECHA_BOLETA" Type="DateTime" Nullable="false" />
+          <Property Name="MONTO" Type="Int64" Nullable="false" />
+          <Property Name="DETALLE" Type="String" Nullable="false" />
+          <NavigationProperty Name="OPEX" Relationship="SCP_UVMModel.OPEXBOLETA" FromRole="BOLETA" ToRole="OPEX" />
+          <Property Name="OPEXID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="CAPEX" Relationship="SCP_UVMModel.CAPEXBOLETA" FromRole="BOLETA" ToRole="CAPEX" />
+          <Property Name="CAPEXID" Type="Int32" Nullable="false" />
+        </EntityType>
+        <Association Name="OPEXFACTURA">
+          <End Type="SCP_UVMModel.OPEX" Role="OPEX" Multiplicity="1" />
+          <End Type="SCP_UVMModel.FACTURA" Role="FACTURA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OPEX">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="FACTURA">
+              <PropertyRef Name="OPEXID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="OPEXBOLETA">
+          <End Type="SCP_UVMModel.OPEX" Role="OPEX" Multiplicity="1" />
+          <End Type="SCP_UVMModel.BOLETA" Role="BOLETA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OPEX">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="BOLETA">
+              <PropertyRef Name="OPEXID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CAPEXBOLETA">
+          <End Type="SCP_UVMModel.CAPEX" Role="CAPEX" Multiplicity="1" />
+          <End Type="SCP_UVMModel.BOLETA" Role="BOLETA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CAPEX">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="BOLETA">
+              <PropertyRef Name="CAPEXID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CAPEXFACTURA">
+          <End Type="SCP_UVMModel.CAPEX" Role="CAPEX" Multiplicity="1" />
+          <End Type="SCP_UVMModel.FACTURA" Role="FACTURA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CAPEX">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="FACTURA">
+              <PropertyRef Name="CAPEXID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CONSOLIDADOCARRERA">
+          <End Type="SCP_UVMModel.CONSOLIDADO" Role="CONSOLIDADO" Multiplicity="1" />
+          <End Type="SCP_UVMModel.CARRERA" Role="CARRERA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CONSOLIDADO">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="CARRERA">
+              <PropertyRef Name="CONSOLIDADOID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CONSOLIDADODIPLOMADO">
+          <End Type="SCP_UVMModel.CONSOLIDADO" Role="CONSOLIDADO" Multiplicity="1" />
+          <End Type="SCP_UVMModel.DIPLOMADO" Role="DIPLOMADO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CONSOLIDADO">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="DIPLOMADO">
+              <PropertyRef Name="CONSOLIDADOID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CONSOLIDADOMAGISTER">
+          <End Type="SCP_UVMModel.CONSOLIDADO" Role="CONSOLIDADO" Multiplicity="1" />
+          <End Type="SCP_UVMModel.MAGISTER" Role="MAGISTER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CONSOLIDADO">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="MAGISTER">
+              <PropertyRef Name="CONSOLIDADOID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="MES">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NOMBRE_MES" Type="String" Nullable="false" />
+          <NavigationProperty Name="CONSOLIDADO" Relationship="SCP_UVMModel.CONSOLIDADOMES" FromRole="MES" ToRole="CONSOLIDADO" />
+          <Property Name="CONSOLIDADOID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="SALIDA_TERRENO" Relationship="SCP_UVMModel.SALIDA_TERRENOMES" FromRole="MES" ToRole="SALIDA_TERRENO" />
+          <NavigationProperty Name="PAGO_DIPLOMADO" Relationship="SCP_UVMModel.MESPAGO_DIPLOMADO" FromRole="MES" ToRole="PAGO_DIPLOMADO" />
+        </EntityType>
+        <Association Name="CONSOLIDADOMES">
+          <End Type="SCP_UVMModel.CONSOLIDADO" Role="CONSOLIDADO" Multiplicity="1" />
+          <End Type="SCP_UVMModel.MES" Role="MES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CONSOLIDADO">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="MES">
+              <PropertyRef Name="CONSOLIDADOID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SALIDA_TERRENOMES">
+          <End Type="SCP_UVMModel.SALIDA_TERRENO" Role="SALIDA_TERRENO" Multiplicity="*" />
+          <End Type="SCP_UVMModel.MES" Role="MES" Multiplicity="*" />
+        </Association>
+        <EntityType Name="SOLICITUD">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NUMERO_SOLICITUD" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="PERSONA_JURIDICA" Relationship="SCP_UVMModel.PERSONA_JURIDICASOLICITUD" FromRole="SOLICITUD" ToRole="PERSONA_JURIDICA" />
+          <Property Name="DETALLE" Type="String" Nullable="false" />
+          <Property Name="PERSONA_JURIDICAID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="CAPEX" Relationship="SCP_UVMModel.SOLICITUDCAPEX" FromRole="SOLICITUD" ToRole="CAPEX" />
+          <Property Name="CAPEXID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="OPEX" Relationship="SCP_UVMModel.SOLICITUDOPEX" FromRole="SOLICITUD" ToRole="OPEX" />
+          <Property Name="OPEXID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="PERSONA_NATURAL" Relationship="SCP_UVMModel.PERSONA_NATURALSOLICITUD" FromRole="SOLICITUD" ToRole="PERSONA_NATURAL" />
+        </EntityType>
+        <Association Name="PERSONA_JURIDICASOLICITUD">
+          <End Type="SCP_UVMModel.PERSONA_JURIDICAs" Role="PERSONA_JURIDICA" Multiplicity="1" />
+          <End Type="SCP_UVMModel.SOLICITUD" Role="SOLICITUD" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PERSONA_JURIDICA">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SOLICITUD">
+              <PropertyRef Name="PERSONA_JURIDICAID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SOLICITUDCAPEX">
+          <End Type="SCP_UVMModel.SOLICITUD" Role="SOLICITUD" Multiplicity="*" />
+          <End Type="SCP_UVMModel.CAPEX" Role="CAPEX" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="CAPEX">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SOLICITUD">
+              <PropertyRef Name="CAPEXID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SOLICITUDOPEX">
+          <End Type="SCP_UVMModel.SOLICITUD" Role="SOLICITUD" Multiplicity="*" />
+          <End Type="SCP_UVMModel.OPEX" Role="OPEX" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="OPEX">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SOLICITUD">
+              <PropertyRef Name="OPEXID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PERSONA_NATURALSOLICITUD">
+          <End Type="SCP_UVMModel.PERSONA_NATURALes" Role="PERSONA_NATURAL" Multiplicity="*" />
+          <End Type="SCP_UVMModel.SOLICITUD" Role="SOLICITUD" Multiplicity="*" />
+        </Association>
+        <EntityType Name="CAMBIO">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MONEDA_CAMBIO" Type="String" Nullable="false" />
+          <Property Name="FECHA" Type="DateTime" Nullable="false" />
+          <NavigationProperty Name="OPEXes" Relationship="SCP_UVMModel.CAMBIOOPEX" FromRole="CAMBIO" ToRole="OPEX" />
+        </EntityType>
+        <Association Name="CAMBIOOPEX">
+          <End Type="SCP_UVMModel.CAMBIO" Role="CAMBIO" Multiplicity="*" />
+          <End Type="SCP_UVMModel.OPEX" Role="OPEX" Multiplicity="*" />
+        </Association>
+        <Association Name="MAGISTEROPEX">
+          <End Type="SCP_UVMModel.MAGISTER" Role="MAGISTER" Multiplicity="*" />
+          <End Type="SCP_UVMModel.OPEX" Role="OPEX" Multiplicity="*" />
+        </Association>
+        <Association Name="DIPLOMADOOPEX">
+          <End Type="SCP_UVMModel.DIPLOMADO" Role="DIPLOMADO" Multiplicity="*" />
+          <End Type="SCP_UVMModel.OPEX" Role="OPEX" Multiplicity="*" />
+        </Association>
+        <Association Name="CARRERAOPEX">
+          <End Type="SCP_UVMModel.CARRERA" Role="CARRERA" Multiplicity="*" />
+          <End Type="SCP_UVMModel.OPEX" Role="OPEX" Multiplicity="*" />
+        </Association>
+        <Association Name="CARRERACAPEX">
+          <End Type="SCP_UVMModel.CARRERA" Role="CARRERA" Multiplicity="*" />
+          <End Type="SCP_UVMModel.CAPEX" Role="CAPEX" Multiplicity="*" />
+        </Association>
+        <Association Name="DIPLOMADOPROP_DIPLOMADO">
+          <End Type="SCP_UVMModel.DIPLOMADO" Role="DIPLOMADO" Multiplicity="*" />
+          <End Type="SCP_UVMModel.PROP_DIPLOMADO" Role="PROP_DIPLOMADO" Multiplicity="*" />
+        </Association>
+        <Association Name="MESPAGO_DIPLOMADO">
+          <End Type="SCP_UVMModel.MES" Role="MES" Multiplicity="*" />
+          <End Type="SCP_UVMModel.PAGO_DIPLOMADO" Role="PAGO_DIPLOMADO" Multiplicity="1" />
+        </Association>
+        <EntityType Name="DETALLE_RENDICION">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="RENDICIONs" Relationship="SCP_UVMModel.DETALLE_RENDICIONRENDICION" FromRole="DETALLE_RENDICION" ToRole="RENDICION" />
+          <Property Name="CODIGO" Type="Int64" Nullable="false" />
+          <Property Name="NOMBRE_ORGANIZACION" Type="String" Nullable="false" />
+          <Property Name="MONTO" Type="Int64" Nullable="false" />
+        </EntityType>
+        <Association Name="DETALLE_RENDICIONRENDICION">
+          <End Type="SCP_UVMModel.DETALLE_RENDICION" Role="DETALLE_RENDICION" Multiplicity="*" />
+          <End Type="SCP_UVMModel.RENDICION" Role="RENDICION" Multiplicity="*" />
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="SCP_UVMModelStoreContainer" CdmEntityContainer="SCP_UVMEntities">
+    <EntitySetMapping Name="USUARIOs">
+      <EntityTypeMapping TypeName="IsTypeOf(SCP_UVMModel.USUARIO)">
+        <MappingFragment StoreEntitySet="USUARIOs">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+          <ScalarProperty Name="NOMBRE_USUARIO" ColumnName="NOMBRE_USUARIO" />
+          <ScalarProperty Name="CONTRASENA" ColumnName="CONTRASENA" />
+          <ScalarProperty Name="ROLID" ColumnName="ROLID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ROLes">
+      <EntityTypeMapping TypeName="IsTypeOf(SCP_UVMModel.ROL)">
+        <MappingFragment StoreEntitySet="ROLes">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+          <ScalarProperty Name="NOMBRE_ROL" ColumnName="NOMBRE_ROL" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PROGRAMAs">
+      <EntityTypeMapping TypeName="IsTypeOf(SCP_UVMModel.PROGRAMA)">
+        <MappingFragment StoreEntitySet="PROGRAMAs">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="U_EXPLOTACION" ColumnName="U_EXPLOTACION" />
+          <ScalarProperty Name="DEPARTAMENTO" ColumnName="DEPARTAMENTO" />
+          <ScalarProperty Name="PROD_TITULO" ColumnName="PROD_TITULO" />
+          <ScalarProperty Name="DISCIPLINA" ColumnName="DISCIPLINA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(SCP_UVMModel.CARRERA)">
+        <MappingFragment StoreEntitySet="PROGRAMAs_CARRERA">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="CONSOLIDADOID" ColumnName="CONSOLIDADOID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(SCP_UVMModel.DIPLOMADO)">
+        <MappingFragment StoreEntitySet="PROGRAMAs_DIPLOMADO">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ACTIVITY_CODE" ColumnName="ACTIVITY_CODE" />
+          <ScalarProperty Name="CONSOLIDADOID" ColumnName="CONSOLIDADOID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(SCP_UVMModel.MAGISTER)">
+        <MappingFragment StoreEntitySet="PROGRAMAs_MAGISTER">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="CONSOLIDADOID" ColumnName="CONSOLIDADOID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PERSONAs">
+      <EntityTypeMapping TypeName="IsTypeOf(SCP_UVMModel.PERSONA)">
+        <MappingFragment StoreEntitySet="PERSONAs">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="RUT" ColumnName="RUT" />
+          <ScalarProperty Name="DIGITO_VERIFICADOR" ColumnName="DIGITO_VERIFICADOR" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(SCP_UVMModel.PERSONA_JURIDICAs)">
+        <MappingFragment StoreEntitySet="PERSONAs_PERSONA_JURIDICAs">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(SCP_UVMModel.PERSONA_NATURALes)">
+        <MappingFragment StoreEntitySet="PERSONAs_PERSONA_NATURALes">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="APELLIDO_PATERNO" ColumnName="APELLIDO_PATERNO" />
+          <ScalarProperty Name="APELLIDO_MATERNO" ColumnName="APELLIDO_MATERNO" />
+          <ScalarProperty Name="ID_EMPLEADO" ColumnName="ID_EMPLEADO" />
+          <ScalarProperty Name="CORREO" ColumnName="CORREO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CONSOLIDADOs">
+      <EntityTypeMapping TypeName="IsTypeOf(SCP_UVMModel.CONSOLIDADO)">
+        <MappingFragment StoreEntitySet="CONSOLIDADOs">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+          <ScalarProperty Name="MONTO" ColumnName="MONTO" />
+          <ScalarProperty Name="TOTAL" ColumnName="TOTAL" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SALIDA_TERRENOs">
+      <EntityTypeMapping TypeName="IsTypeOf(SCP_UVMModel.SALIDA_TERRENO)">
+        <MappingFragment StoreEntitySet="SALIDA_TERRENOs">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+          <ScalarProperty Name="TIPO_SALIDA" ColumnName="TIPO_SALIDA" />
+          <ScalarProperty Name="UBICACION" ColumnName="UBICACION" />
+          <ScalarProperty Name="CANTIDAD_ALUMNOS" ColumnName="CANTIDAD_ALUMNOS" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OPEXes">
+      <EntityTypeMapping TypeName="IsTypeOf(SCP_UVMModel.OPEX)">
+        <MappingFragment StoreEntitySet="OPEXes">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+          <ScalarProperty Name="MONTO_NETO" ColumnName="MONTO_NETO" />
+          <ScalarProperty Name="IVA" ColumnName="IVA" />
+          <ScalarProperty Name="TOTAL" ColumnName="TOTAL" />
+          <ScalarProperty Name="ESTADO_OPEX" ColumnName="ESTADO_OPEX" />
+          <ScalarProperty Name="RECEPCION" ColumnName="RECEPCION" />
+          <ScalarProperty Name="VALIDACION" ColumnName="VALIDACION" />
+          <ScalarProperty Name="PERSONA_NATURALID" ColumnName="PERSONA_NATURALID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CAPEXes">
+      <EntityTypeMapping TypeName="IsTypeOf(SCP_UVMModel.CAPEX)">
+        <MappingFragment StoreEntitySet="CAPEXes">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+          <ScalarProperty Name="DETALLE" ColumnName="DETALLE" />
+          <ScalarProperty Name="RECEPCION" ColumnName="RECEPCION" />
+          <ScalarProperty Name="VALIDACION" ColumnName="VALIDACION" />
+          <ScalarProperty Name="PERSONA_JURIDICAID" ColumnName="PERSONA_JURIDICAID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PROP_DIPLOMADOs">
+      <EntityTypeMapping TypeName="IsTypeOf(SCP_UVMModel.PROP_DIPLOMADO)">
+        <MappingFragment StoreEntitySet="PROP_DIPLOMADOs">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+          <ScalarProperty Name="RESPONSABLE" ColumnName="RESPONSABLE" />
+          <ScalarProperty Name="MODALIDAD" ColumnName="MODALIDAD" />
+          <ScalarProperty Name="FECHA_INICIO" ColumnName="FECHA_INICIO" />
+          <ScalarProperty Name="FECHA_TERMINO" ColumnName="FECHA_TERMINO" />
+          <ScalarProperty Name="CANTIDAD_MODULO" ColumnName="CANTIDAD_MODULO" />
+          <ScalarProperty Name="CANTIDAD_ALUMNO" ColumnName="CANTIDAD_ALUMNO" />
+          <ScalarProperty Name="COSTO" ColumnName="COSTO" />
+          <ScalarProperty Name="INGRESO_NETO" ColumnName="INGRESO_NETO" />
+          <ScalarProperty Name="COSTO_DOCENTE" ColumnName="COSTO_DOCENTE" />
+          <ScalarProperty Name="COSTO_ACADEMICO" ColumnName="COSTO_ACADEMICO" />
+          <ScalarProperty Name="OTROS_COSTOS" ColumnName="OTROS_COSTOS" />
+          <ScalarProperty Name="TOTAL" ColumnName="TOTAL" />
+          <ScalarProperty Name="PERSONA_NATURALID" ColumnName="PERSONA_NATURALID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PAGO_DIPLOMADOs">
+      <EntityTypeMapping TypeName="IsTypeOf(SCP_UVMModel.PAGO_DIPLOMADO)">
+        <MappingFragment StoreEntitySet="PAGO_DIPLOMADOs">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+          <ScalarProperty Name="PROGRAMA" ColumnName="PROGRAMA" />
+          <ScalarProperty Name="MOTIVO" ColumnName="MOTIVO" />
+          <ScalarProperty Name="TOTAL" ColumnName="TOTAL" />
+          <ScalarProperty Name="PERSONA_NATURALID" ColumnName="PERSONA_NATURALID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="REEMBOLSOs">
+      <EntityTypeMapping TypeName="IsTypeOf(SCP_UVMModel.REEMBOLSO)">
+        <MappingFragment StoreEntitySet="REEMBOLSOs">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+          <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+          <ScalarProperty Name="ESTADO_REEMBOLSO" ColumnName="ESTADO_REEMBOLSO" />
+          <ScalarProperty Name="FECHA" ColumnName="FECHA" />
+          <ScalarProperty Name="DETALLE" ColumnName="DETALLE" />
+          <ScalarProperty Name="MONTO" ColumnName="MONTO" />
+          <ScalarProperty Name="TOTAL" ColumnName="TOTAL" />
+          <ScalarProperty Name="PERSONA_NATURALID" ColumnName="PERSONA_NATURALID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RENDICIONes">
+      <EntityTypeMapping TypeName="IsTypeOf(SCP_UVMModel.RENDICION)">
+        <MappingFragment StoreEntitySet="RENDICIONes">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+          <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+          <ScalarProperty Name="ESTADO_ANTICIPO" ColumnName="ESTADO_ANTICIPO" />
+          <ScalarProperty Name="FECHA" ColumnName="FECHA" />
+          <ScalarProperty Name="ID_RENDICION" ColumnName="ID_RENDICION" />
+          <ScalarProperty Name="DETALLE_VARIOS" ColumnName="DETALLE_VARIOS" />
+          <ScalarProperty Name="PERSONA_NATURALID" ColumnName="PERSONA_NATURALID" />
+          <ScalarProperty Name="PERSONA_JURIDICAID" ColumnName="PERSONA_JURIDICAID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FACTURAs">
+      <EntityTypeMapping TypeName="IsTypeOf(SCP_UVMModel.FACTURA)">
+        <MappingFragment StoreEntitySet="FACTURAs">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="NUMERO_FACTURA" ColumnName="NUMERO_FACTURA" />
+          <ScalarProperty Name="FECHA_FACTURA" ColumnName="FECHA_FACTURA" />
+          <ScalarProperty Name="MONTO" ColumnName="MONTO" />
+          <ScalarProperty Name="DETALLE" ColumnName="DETALLE" />
+          <ScalarProperty Name="OPEXID" ColumnName="OPEXID" />
+          <ScalarProperty Name="CAPEXID" ColumnName="CAPEXID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BOLETAs">
+      <EntityTypeMapping TypeName="IsTypeOf(SCP_UVMModel.BOLETA)">
+        <MappingFragment StoreEntitySet="BOLETAs">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="NUMERO_BOLETA" ColumnName="NUMERO_BOLETA" />
+          <ScalarProperty Name="FECHA_BOLETA" ColumnName="FECHA_BOLETA" />
+          <ScalarProperty Name="MONTO" ColumnName="MONTO" />
+          <ScalarProperty Name="DETALLE" ColumnName="DETALLE" />
+          <ScalarProperty Name="OPEXID" ColumnName="OPEXID" />
+          <ScalarProperty Name="CAPEXID" ColumnName="CAPEXID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MESes">
+      <EntityTypeMapping TypeName="IsTypeOf(SCP_UVMModel.MES)">
+        <MappingFragment StoreEntitySet="MESes">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="NOMBRE_MES" ColumnName="NOMBRE_MES" />
+          <ScalarProperty Name="CONSOLIDADOID" ColumnName="CONSOLIDADOID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SOLICITUDes">
+      <EntityTypeMapping TypeName="IsTypeOf(SCP_UVMModel.SOLICITUD)">
+        <MappingFragment StoreEntitySet="SOLICITUDes">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="NUMERO_SOLICITUD" ColumnName="NUMERO_SOLICITUD" />
+          <ScalarProperty Name="DETALLE" ColumnName="DETALLE" />
+          <ScalarProperty Name="PERSONA_JURIDICAID" ColumnName="PERSONA_JURIDICAID" />
+          <ScalarProperty Name="CAPEXID" ColumnName="CAPEXID" />
+          <ScalarProperty Name="OPEXID" ColumnName="OPEXID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CAMBIOs">
+      <EntityTypeMapping TypeName="IsTypeOf(SCP_UVMModel.CAMBIO)">
+        <MappingFragment StoreEntitySet="CAMBIOs">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="MONEDA_CAMBIO" ColumnName="MONEDA_CAMBIO" />
+          <ScalarProperty Name="FECHA" ColumnName="FECHA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DETALLE_RENDICION">
+      <EntityTypeMapping TypeName="IsTypeOf(SCP_UVMModel.DETALLE_RENDICION)">
+        <MappingFragment StoreEntitySet="DETALLE_RENDICION">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="CODIGO" ColumnName="CODIGO" />
+          <ScalarProperty Name="NOMBRE_ORGANIZACION" ColumnName="NOMBRE_ORGANIZACION" />
+          <ScalarProperty Name="MONTO" ColumnName="MONTO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="SALIDA_TERRENOMES" TypeName="SCP_UVMModel.SALIDA_TERRENOMES" StoreEntitySet="SALIDA_TERRENOMES">
+      <EndProperty Name="SALIDA_TERRENO">
+        <ScalarProperty Name="ID" ColumnName="SALIDA_TERRENO_ID" />
+      </EndProperty>
+      <EndProperty Name="MES">
+        <ScalarProperty Name="ID" ColumnName="MES_ID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="PERSONA_NATURALSOLICITUD" TypeName="SCP_UVMModel.PERSONA_NATURALSOLICITUD" StoreEntitySet="PERSONA_NATURALSOLICITUD">
+      <EndProperty Name="PERSONA_NATURAL">
+        <ScalarProperty Name="ID" ColumnName="PERSONA_NATURAL_ID" />
+      </EndProperty>
+      <EndProperty Name="SOLICITUD">
+        <ScalarProperty Name="ID" ColumnName="SOLICITUDs_ID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="CAMBIOOPEX" TypeName="SCP_UVMModel.CAMBIOOPEX" StoreEntitySet="CAMBIOOPEX">
+      <EndProperty Name="CAMBIO">
+        <ScalarProperty Name="ID" ColumnName="CAMBIOs_ID" />
+      </EndProperty>
+      <EndProperty Name="OPEX">
+        <ScalarProperty Name="ID" ColumnName="OPEXes_ID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="MAGISTEROPEX" TypeName="SCP_UVMModel.MAGISTEROPEX" StoreEntitySet="MAGISTEROPEX">
+      <EndProperty Name="MAGISTER">
+        <ScalarProperty Name="ID" ColumnName="MAGISTERs_ID" />
+      </EndProperty>
+      <EndProperty Name="OPEX">
+        <ScalarProperty Name="ID" ColumnName="OPEXes_ID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="DIPLOMADOOPEX" TypeName="SCP_UVMModel.DIPLOMADOOPEX" StoreEntitySet="DIPLOMADOOPEX">
+      <EndProperty Name="DIPLOMADO">
+        <ScalarProperty Name="ID" ColumnName="DIPLOMADOes_ID" />
+      </EndProperty>
+      <EndProperty Name="OPEX">
+        <ScalarProperty Name="ID" ColumnName="OPEXes_ID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="CARRERAOPEX" TypeName="SCP_UVMModel.CARRERAOPEX" StoreEntitySet="CARRERAOPEX">
+      <EndProperty Name="CARRERA">
+        <ScalarProperty Name="ID" ColumnName="CARRERAs_ID" />
+      </EndProperty>
+      <EndProperty Name="OPEX">
+        <ScalarProperty Name="ID" ColumnName="OPEXes_ID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="CARRERACAPEX" TypeName="SCP_UVMModel.CARRERACAPEX" StoreEntitySet="CARRERACAPEX">
+      <EndProperty Name="CARRERA">
+        <ScalarProperty Name="ID" ColumnName="CARRERAs_ID" />
+      </EndProperty>
+      <EndProperty Name="CAPEX">
+        <ScalarProperty Name="ID" ColumnName="CAPEXes_ID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="DIPLOMADOPROP_DIPLOMADO" TypeName="SCP_UVMModel.DIPLOMADOPROP_DIPLOMADO" StoreEntitySet="DIPLOMADOPROP_DIPLOMADO">
+      <EndProperty Name="DIPLOMADO">
+        <ScalarProperty Name="ID" ColumnName="DIPLOMADOes_ID" />
+      </EndProperty>
+      <EndProperty Name="PROP_DIPLOMADO">
+        <ScalarProperty Name="ID" ColumnName="PROP_DIPLOMADO_ID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="MESPAGO_DIPLOMADO" TypeName="SCP_UVMModel.MESPAGO_DIPLOMADO" StoreEntitySet="MESes">
+      <EndProperty Name="PAGO_DIPLOMADO">
+        <ScalarProperty Name="ID" ColumnName="PAGO_DIPLOMADO_ID" />
+      </EndProperty>
+      <EndProperty Name="MES">
+        <ScalarProperty Name="ID" ColumnName="ID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="DETALLE_RENDICIONRENDICION" TypeName="SCP_UVMModel.DETALLE_RENDICIONRENDICION" StoreEntitySet="DETALLE_RENDICIONRENDICION">
+      <EndProperty Name="DETALLE_RENDICION">
+        <ScalarProperty Name="ID" ColumnName="DETALLE_RENDICION_ID" />
+      </EndProperty>
+      <EndProperty Name="RENDICION">
+        <ScalarProperty Name="ID" ColumnName="RENDICIONs_ID" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

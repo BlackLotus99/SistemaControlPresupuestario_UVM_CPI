@@ -1,0 +1,88 @@
+﻿@model Sistema_UVM_Control_Presupuestario.DIPLOMADO
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>DIPLOMADO</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CONSOLIDADO.MONTO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CONSOLIDADO.MONTO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ACTIVITY_CODE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ACTIVITY_CODE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ESTADO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ESTADO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NOMBRE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NOMBRE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.U_EXPLOTACION)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.U_EXPLOTACION)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DEPARTAMENTO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DEPARTAMENTO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PROD_TITULO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PROD_TITULO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DISCIPLINA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DISCIPLINA)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

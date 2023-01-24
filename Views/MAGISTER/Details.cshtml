@@ -1,0 +1,74 @@
+﻿@model Sistema_UVM_Control_Presupuestario.MAGISTER
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>MAGISTER</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CONSOLIDADO.MONTO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CONSOLIDADO.MONTO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ESTADO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ESTADO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NOMBRE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NOMBRE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.U_EXPLOTACION)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.U_EXPLOTACION)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DEPARTAMENTO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DEPARTAMENTO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PROD_TITULO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PROD_TITULO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DISCIPLINA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DISCIPLINA)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

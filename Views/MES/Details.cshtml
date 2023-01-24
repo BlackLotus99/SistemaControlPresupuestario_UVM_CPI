@@ -1,0 +1,34 @@
+﻿@model Sistema_UVM_Control_Presupuestario.MES
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>MES</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NOMBRE_MES)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NOMBRE_MES)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CONSOLIDADO.MONTO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CONSOLIDADO.MONTO)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

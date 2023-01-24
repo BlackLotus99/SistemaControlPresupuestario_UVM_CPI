@@ -1,0 +1,82 @@
+﻿@model Sistema_UVM_Control_Presupuestario.OPEX
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>OPEX</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PERSONA_NATURAL.APELLIDO_PATERNO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PERSONA_NATURAL.APELLIDO_PATERNO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ESTADO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ESTADO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MONTO_NETO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MONTO_NETO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IVA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IVA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TOTAL)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TOTAL)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ESTADO_OPEX)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ESTADO_OPEX)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RECEPCION)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RECEPCION)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VALIDACION)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VALIDACION)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,50 @@
+﻿@model Sistema_UVM_Control_Presupuestario.PERSONA_JURIDICA
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>PERSONA_JURIDICA</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ESTADO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ESTADO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NOMBRE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NOMBRE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RUT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RUT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DIGITO_VERIFICADOR)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DIGITO_VERIFICADOR)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

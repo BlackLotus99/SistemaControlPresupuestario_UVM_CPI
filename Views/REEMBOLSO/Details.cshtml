@@ -1,0 +1,82 @@
+﻿@model Sistema_UVM_Control_Presupuestario.REEMBOLSO
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>REEMBOLSO</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PERSONA_NATURAL.APELLIDO_PATERNO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PERSONA_NATURAL.APELLIDO_PATERNO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ESTADO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ESTADO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DESCRIPCION)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DESCRIPCION)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ESTADO_REEMBOLSO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ESTADO_REEMBOLSO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FECHA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FECHA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DETALLE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DETALLE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MONTO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MONTO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TOTAL)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TOTAL)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

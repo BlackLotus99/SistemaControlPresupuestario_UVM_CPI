@@ -1,0 +1,111 @@
+﻿@model IEnumerable<Sistema_UVM_Control_Presupuestario.PROP_DIPLOMADO>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.PERSONA_NATURAL.APELLIDO_PATERNO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ESTADO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RESPONSABLE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MODALIDAD)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FECHA_INICIO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FECHA_TERMINO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CANTIDAD_MODULO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CANTIDAD_ALUMNO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.COSTO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.INGRESO_NETO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.COSTO_DOCENTE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.COSTO_ACADEMICO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OTROS_COSTOS)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TOTAL)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.PERSONA_NATURAL.APELLIDO_PATERNO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ESTADO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RESPONSABLE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MODALIDAD)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FECHA_INICIO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FECHA_TERMINO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CANTIDAD_MODULO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CANTIDAD_ALUMNO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.COSTO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.INGRESO_NETO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.COSTO_DOCENTE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.COSTO_ACADEMICO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OTROS_COSTOS)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TOTAL)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="82dae2c1379643f5923b06f4181b8882" Name="Diagram1" ZoomLevel="59" >
+        <EntityTypeShape EntityType="SCP_UVMModel.USUARIO" Width="1.5" PointX="7.875" PointY="0.5" FillColor="DarkMagenta" />
+        <EntityTypeShape EntityType="SCP_UVMModel.ROL" Width="1.5" PointX="10.125" PointY="0.5" FillColor="DarkMagenta" />
+        <EntityTypeShape EntityType="SCP_UVMModel.PROGRAMA" Width="1.5" PointX="3.25" PointY="0.5" FillColor="Indigo" />
+        <EntityTypeShape EntityType="SCP_UVMModel.DIPLOMADO" Width="1.5" PointX="3.25" PointY="3.375" FillColor="Indigo" />
+        <EntityTypeShape EntityType="SCP_UVMModel.CARRERA" Width="1.5" PointX="0.5" PointY="3.375" FillColor="Indigo" />
+        <EntityTypeShape EntityType="SCP_UVMModel.MAGISTER" Width="1.5" PointX="6" PointY="3.375" FillColor="Indigo" />
+        <EntityTypeShape EntityType="SCP_UVMModel.PERSONA" Width="1.5" PointX="13.25" PointY="0.5" FillColor="255, 224, 192" />
+        <EntityTypeShape EntityType="SCP_UVMModel.PERSONA_NATURALes" Width="1.5" PointX="14.875" PointY="3.375" FillColor="255, 224, 192" />
+        <EntityTypeShape EntityType="SCP_UVMModel.PERSONA_JURIDICAs" Width="1.5" PointX="11.75" PointY="3.375" FillColor="255, 224, 192" />
+        <EntityTypeShape EntityType="SCP_UVMModel.CONSOLIDADO" Width="1.5" PointX="3.25" PointY="6.875" FillColor="Turquoise" />
+        <EntityTypeShape EntityType="SCP_UVMModel.SALIDA_TERRENO" Width="1.5" PointX="6" PointY="6.875" FillColor="Turquoise" />
+        <EntityTypeShape EntityType="SCP_UVMModel.OPEX" Width="1.5" PointX="8.75" PointY="6.875" FillColor="Turquoise" />
+        <EntityTypeShape EntityType="SCP_UVMModel.CAPEX" Width="1.5" PointX="11.75" PointY="6.875" FillColor="Turquoise" />
+        <EntityTypeShape EntityType="SCP_UVMModel.PROP_DIPLOMADO" Width="1.5" PointX="14.875" PointY="6.875" FillColor="Turquoise" />
+        <EntityTypeShape EntityType="SCP_UVMModel.PAGO_DIPLOMADO" Width="1.5" PointX="17.625" PointY="6.875" FillColor="Turquoise" />
+        <EntityTypeShape EntityType="SCP_UVMModel.REEMBOLSO" Width="1.5" PointX="20.375" PointY="6.875" FillColor="Turquoise" IsExpanded="true" />
+        <EntityTypeShape EntityType="SCP_UVMModel.RENDICION" Width="1.5" PointX="23.125" PointY="6.875" FillColor="Turquoise" />
+        <AssociationConnector Association="SCP_UVMModel.USUARIOROL" />
+        <InheritanceConnector EntityType="SCP_UVMModel.DIPLOMADO" />
+        <InheritanceConnector EntityType="SCP_UVMModel.CARRERA" />
+        <InheritanceConnector EntityType="SCP_UVMModel.MAGISTER" />
+        <InheritanceConnector EntityType="SCP_UVMModel.PERSONA_NATURALes" />
+        <InheritanceConnector EntityType="SCP_UVMModel.PERSONA_JURIDICAs" />
+        <AssociationConnector Association="SCP_UVMModel.PERSONA_JURIDICARENDICION" />
+        <AssociationConnector Association="SCP_UVMModel.PERSONA_JURIDICACAPEX" />
+        <AssociationConnector Association="SCP_UVMModel.PERSONA_NATURALOPEX" />
+        <AssociationConnector Association="SCP_UVMModel.PERSONA_NATURALPROP_DIPLOMADO" />
+        <AssociationConnector Association="SCP_UVMModel.PERSONA_NATURALPAGO_DIPLOMADO" />
+        <AssociationConnector Association="SCP_UVMModel.PERSONA_NATURALREEMBOLSO" />
+        <AssociationConnector Association="SCP_UVMModel.PERSONA_NATURALRENDICION" />
+        <EntityTypeShape EntityType="SCP_UVMModel.FACTURA" Width="1.5" PointX="8.75" PointY="15.5" />
+        <EntityTypeShape EntityType="SCP_UVMModel.BOLETA" Width="1.5" PointX="11.75" PointY="15.5" />
+        <AssociationConnector Association="SCP_UVMModel.OPEXFACTURA" />
+        <AssociationConnector Association="SCP_UVMModel.OPEXBOLETA" ManuallyRouted="true" >
+          <ConnectorPoint PointX="9.06662860590369" PointY="11.162903645833333" />
+          <ConnectorPoint PointX="9.06662860590369" PointY="11.537903645833332" />
+          <ConnectorPoint PointX="8.438161164522171" PointY="11.537903645833332" />
+          <ConnectorPoint PointX="8.438161164522171" PointY="18.816793619791667" />
+          <ConnectorPoint PointX="11.957388445435654" PointY="18.816793619791667" />
+          <ConnectorPoint PointX="11.957388445435654" PointY="18.441793619791667" />
+        </AssociationConnector>
+        <AssociationConnector Association="SCP_UVMModel.CAPEXBOLETA" />
+        <AssociationConnector Association="SCP_UVMModel.CAPEXFACTURA" />
+        <AssociationConnector Association="SCP_UVMModel.CONSOLIDADOCARRERA" />
+        <AssociationConnector Association="SCP_UVMModel.CONSOLIDADODIPLOMADO" />
+        <AssociationConnector Association="SCP_UVMModel.CONSOLIDADOMAGISTER" />
+        <EntityTypeShape EntityType="SCP_UVMModel.MES" Width="1.5" PointX="3.25" PointY="10.25" />
+        <AssociationConnector Association="SCP_UVMModel.CONSOLIDADOMES" />
+        <AssociationConnector Association="SCP_UVMModel.SALIDA_TERRENOMES" />
+        <EntityTypeShape EntityType="SCP_UVMModel.SOLICITUD" Width="1.5" PointX="10.25" PointY="11.875" />
+        <AssociationConnector Association="SCP_UVMModel.PERSONA_JURIDICASOLICITUD" />
+        <AssociationConnector Association="SCP_UVMModel.SOLICITUDCAPEX" />
+        <AssociationConnector Association="SCP_UVMModel.SOLICITUDOPEX" />
+        <AssociationConnector Association="SCP_UVMModel.PERSONA_NATURALSOLICITUD" />
+        <EntityTypeShape EntityType="SCP_UVMModel.CAMBIO" Width="1.5" PointX="6" PointY="10.25" />
+        <AssociationConnector Association="SCP_UVMModel.CAMBIOOPEX" />
+        <AssociationConnector Association="SCP_UVMModel.MAGISTEROPEX" />
+        <AssociationConnector Association="SCP_UVMModel.DIPLOMADOOPEX" />
+        <AssociationConnector Association="SCP_UVMModel.CARRERAOPEX" />
+        <AssociationConnector Association="SCP_UVMModel.CARRERACAPEX" />
+        <AssociationConnector Association="SCP_UVMModel.DIPLOMADOPROP_DIPLOMADO" />
+        <AssociationConnector Association="SCP_UVMModel.MESPAGO_DIPLOMADO" ManuallyRouted="true" >
+          <ConnectorPoint PointX="3.6663143517164443" PointY="12.422587890625" />
+          <ConnectorPoint PointX="3.6663143517164443" PointY="19.112764296043757" />
+          <ConnectorPoint PointX="18.375" PointY="19.112764296043757" />
+          <ConnectorPoint PointX="18.375" PointY="9.4321907552083335" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="SCP_UVMModel.DETALLE_RENDICION" Width="1.5" PointX="23.125" PointY="10.875" />
+        <AssociationConnector Association="SCP_UVMModel.DETALLE_RENDICIONRENDICION" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

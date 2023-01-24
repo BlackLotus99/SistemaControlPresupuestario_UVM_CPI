@@ -1,0 +1,57 @@
+﻿@model IEnumerable<Sistema_UVM_Control_Presupuestario.PAGO_DIPLOMADO>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.PERSONA_NATURAL.APELLIDO_PATERNO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ESTADO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PROGRAMA)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MOTIVO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TOTAL)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.PERSONA_NATURAL.APELLIDO_PATERNO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ESTADO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PROGRAMA)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MOTIVO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TOTAL)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>

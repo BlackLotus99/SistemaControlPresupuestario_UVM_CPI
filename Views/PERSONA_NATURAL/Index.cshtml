@@ -1,0 +1,75 @@
+﻿@model IEnumerable<Sistema_UVM_Control_Presupuestario.PERSONA_NATURAL>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.APELLIDO_PATERNO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.APELLIDO_MATERNO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ID_EMPLEADO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CORREO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ESTADO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NOMBRE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RUT)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DIGITO_VERIFICADOR)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.APELLIDO_PATERNO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.APELLIDO_MATERNO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ID_EMPLEADO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CORREO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ESTADO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NOMBRE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RUT)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DIGITO_VERIFICADOR)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>

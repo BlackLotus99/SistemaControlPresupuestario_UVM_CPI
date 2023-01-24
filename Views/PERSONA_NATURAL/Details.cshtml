@@ -1,0 +1,82 @@
+﻿@model Sistema_UVM_Control_Presupuestario.PERSONA_NATURAL
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>PERSONA_NATURAL</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.APELLIDO_PATERNO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.APELLIDO_PATERNO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.APELLIDO_MATERNO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.APELLIDO_MATERNO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ID_EMPLEADO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ID_EMPLEADO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CORREO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CORREO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ESTADO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ESTADO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NOMBRE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NOMBRE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RUT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RUT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DIGITO_VERIFICADOR)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DIGITO_VERIFICADOR)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
