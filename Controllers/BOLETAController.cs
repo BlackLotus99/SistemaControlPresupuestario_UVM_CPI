@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Sistema_UVM_Control_Presupuestario;
+using Sistema_UVM_Control_Presupuestario.Servicios;
 
 namespace Sistema_UVM_Control_Presupuestario.Controllers
 {
@@ -17,8 +18,7 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
         // GET: BOLETA
         public ActionResult Index()
         {
-            var bOLETAs = db.BOLETAs.Include(b => b.OPEX).Include(b => b.CAPEX);
-            return View(bOLETAs.ToList());
+            return View(new BOLETA_SRV().Listar());
         }
 
         // GET: BOLETA/Details/5
@@ -28,12 +28,12 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            BOLETA bOLETA = db.BOLETAs.Find(id);
-            if (bOLETA == null)
+            BOLETA boleta = new BOLETA_SRV().Buscar(id);
+            if (boleta == null)
             {
                 return HttpNotFound();
             }
-            return View(bOLETA);
+            return View(boleta);
         }
 
         // GET: BOLETA/Create
@@ -53,8 +53,7 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.BOLETAs.Add(bOLETA);
-                db.SaveChanges();
+                new BOLETA_SRV().Agregar(bOLETA);
                 return RedirectToAction("Index");
             }
 
@@ -70,14 +69,15 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            BOLETA bOLETA = db.BOLETAs.Find(id);
-            if (bOLETA == null)
+            //BOLETA bOLETA = db.BOLETAs.Find(id);
+            BOLETA boleta = new BOLETA_SRV().Buscar(id);
+            if (boleta == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.OPEXID = new SelectList(db.OPEXes, "ID", "MONTO_NETO", bOLETA.OPEXID);
-            ViewBag.CAPEXID = new SelectList(db.CAPEXes, "ID", "DETALLE", bOLETA.CAPEXID);
-            return View(bOLETA);
+            ViewBag.OPEXID = new SelectList(db.OPEXes, "ID", "MONTO_NETO", boleta.OPEXID);
+            ViewBag.CAPEXID = new SelectList(db.CAPEXes, "ID", "DETALLE", boleta.CAPEXID);
+            return View(boleta);
         }
 
         // POST: BOLETA/Edit/5
@@ -89,8 +89,9 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(bOLETA).State = EntityState.Modified;
-                db.SaveChanges();
+                //db.Entry(bOLETA).State = EntityState.Modified;
+                //db.SaveChanges();
+                new BOLETA_SRV().Editar(bOLETA);
                 return RedirectToAction("Index");
             }
             ViewBag.OPEXID = new SelectList(db.OPEXes, "ID", "MONTO_NETO", bOLETA.OPEXID);
@@ -105,12 +106,12 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            BOLETA bOLETA = db.BOLETAs.Find(id);
-            if (bOLETA == null)
+            BOLETA boleta = new BOLETA_SRV().Buscar(id);
+            if (boleta == null)
             {
                 return HttpNotFound();
             }
-            return View(bOLETA);
+            return View(boleta);
         }
 
         // POST: BOLETA/Delete/5
@@ -118,9 +119,10 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            BOLETA bOLETA = db.BOLETAs.Find(id);
-            db.BOLETAs.Remove(bOLETA);
-            db.SaveChanges();
+            //BOLETA bOLETA = db.BOLETAs.Find(id);
+            //db.BOLETAs.Remove(bOLETA);
+            //db.SaveChanges();
+            new BOLETA_SRV().Eliminar(id);
             return RedirectToAction("Index");
         }
 
@@ -128,7 +130,7 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
         {
             if (disposing)
             {
-                db.Dispose();
+                new BOLETA_SRV().Dispose();
             }
             base.Dispose(disposing);
         }

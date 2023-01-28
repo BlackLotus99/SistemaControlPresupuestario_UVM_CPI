@@ -201,6 +201,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Model1.edmx</DependentUpon>
     </Compile>
+    <Compile Include="NOMBRE_ROL.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="OPEX.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -235,6 +238,29 @@
     <Compile Include="SALIDA_TERRENO.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Servicios\BOLETA_SRV.cs" />
+    <Compile Include="Servicios\CAMBIO_SRV.cs" />
+    <Compile Include="Servicios\CAPEX_SRV.cs" />
+    <Compile Include="Servicios\CARRERA_SRV.cs" />
+    <Compile Include="Servicios\PERSONA_JURIDICA_SRV.cs" />
+    <Compile Include="Servicios\CONSOLIDADO_SRV.cs" />
+    <Compile Include="Servicios\DETALLE_RENDICION_SRV.cs" />
+    <Compile Include="Servicios\DIPLOMADO_SRV.cs" />
+    <Compile Include="Servicios\FACTURA_SRV.cs" />
+    <Compile Include="Servicios\MAGISTER_SRV.cs" />
+    <Compile Include="Servicios\MES_SRV.cs" />
+    <Compile Include="Servicios\OPEX_SRV.cs" />
+    <Compile Include="Servicios\PAGO_DIPLOMADO_SRV.cs" />
+    <Compile Include="Servicios\PERSONA_NATURAL_SRV.cs" />
+    <Compile Include="Servicios\PERSONA_SRV.cs" />
+    <Compile Include="Servicios\PROGRAMA_SRV.cs" />
+    <Compile Include="Servicios\PROP_DIPLOMADO_SRV.cs" />
+    <Compile Include="Servicios\REEMBOLSO_SRV.cs" />
+    <Compile Include="Servicios\RENDICION_SRV.cs" />
+    <Compile Include="Servicios\ROL_SRV.cs" />
+    <Compile Include="Servicios\SALIDA_TERRENO_SRV.cs" />
+    <Compile Include="Servicios\SOLICITUD_SRV.cs" />
+    <Compile Include="Servicios\USUARIO_SRV.cs" />
     <Compile Include="SOLICITUD.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>

@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 01/24/2023 17:27:04
+-- Date Created: 01/26/2023 22:05:57
 -- Generated from EDMX file: C:\Users\jesus\source\repos\Sistema_UVM_Control_Presupuestario\Model1.edmx
 -- --------------------------------------------------
 
@@ -266,7 +266,7 @@ GO
 CREATE TABLE [dbo].[ROLes] (
     [ID] int IDENTITY(1,1) NOT NULL,
     [ESTADO] bit  NOT NULL,
-    [NOMBRE_ROL] nvarchar(max)  NOT NULL
+    [NOMBRE_ROL] int  NOT NULL
 );
 GO
 

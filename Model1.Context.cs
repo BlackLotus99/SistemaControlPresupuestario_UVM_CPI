@@ -12,40 +12,41 @@ namespace Sistema_UVM_Control_Presupuestario
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
-
+    
     public partial class SCP_UVMEntities : DbContext
     {
         public SCP_UVMEntities()
             : base("name=SCP_UVMEntities")
         {
         }
-
+    
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             throw new UnintentionalCodeFirstException();
         }
-        public virtual DbSet<BOLETA> BOLETAs { get; set;}
+
+        public virtual DbSet<BOLETA> BOLETAs { get; set; }
         public virtual DbSet<CAMBIO> CAMBIOs { get; set; }
         public virtual DbSet<CAPEX> CAPEXes { get; set; }
-        public virtual DbSet<CARRERA> CARRERAs { get; set;}
+        public virtual DbSet<CARRERA> CARRERAs { get; set; }
         public virtual DbSet<CONSOLIDADO> CONSOLIDADOs { get; set; }
         public virtual DbSet<DETALLE_RENDICION> DETALLE_RENDICION { get; set; }
-        public virtual DbSet<DIPLOMADO> DIPLOMADOs { get; set;}
+        public virtual DbSet<DIPLOMADO> DIPLOMADOs { get; set; }
         public virtual DbSet<FACTURA> FACTURAs { get; set; }
-        public virtual DbSet<MAGISTER> MAGISTERs { get; set;}
-        public virtual DbSet<MES> MEs { get; set;}
-        public virtual DbSet<OPEX> OPEXes { get; set;}
-        public virtual DbSet<PAGO_DIPLOMADO> PAGO_DIPLOMADOs { get; set;}
-        public virtual DbSet<PERSONA_JURIDICAs> PERSONA_JURIDICAs { get; set;}
-        public virtual DbSet<PERSONA_NATURALes> PERSONA_NATURALes { get; set;}
-        public virtual DbSet<PERSONA> PERSONAs { get; set;}
-        public virtual DbSet<PROGRAMA> PROGRAMAs { get; set;}
-        public virtual DbSet<PROP_DIPLOMADO> PROP_DIPLOMADOs { get; set;}
-        public virtual DbSet<REEMBOLSO> REEMBOLSOs { get; set;}
-        public virtual DbSet<RENDICION> RENDICIONs { get; set;}
-        public virtual DbSet<ROL> ROLs { get; set;}
-        public virtual DbSet<SALIDA_TERRENO> SALIDA_TERRENOs { get; set;}
-        public virtual DbSet<SOLICITUD> SOLICITUDs { get; set;}
-        public virtual DbSet<USUARIO> USUARIOs { get; set;}
-}
+        public virtual DbSet<MAGISTER> MAGISTERs { get; set; }
+        public virtual DbSet<MES> MEs { get; set; }
+        public virtual DbSet<OPEX> OPEXes { get; set; }
+        public virtual DbSet<PAGO_DIPLOMADO> PAGO_DIPLOMADOs { get; set; }
+        public virtual DbSet<PERSONA_JURIDICAs> PERSONA_JURIDICAs { get; set; }
+        public virtual DbSet<PERSONA_NATURALes> PERSONA_NATURALes { get; set; }
+        public virtual DbSet<PERSONA> PERSONAs { get; set; }
+        public virtual DbSet<PROGRAMA> PROGRAMAs { get; set; }
+        public virtual DbSet<PROP_DIPLOMADO> PROP_DIPLOMADOs { get; set; }
+        public virtual DbSet<REEMBOLSO> REEMBOLSOs { get; set; }
+        public virtual DbSet<RENDICION> RENDICIONs { get; set; }
+        public virtual DbSet<ROL> ROLes { get; set; }
+        public virtual DbSet<SALIDA_TERRENO> SALIDA_TERRENOs { get; set; }
+        public virtual DbSet<SOLICITUD> SOLICITUDs { get; set; }
+        public virtual DbSet<USUARIO> USUARIOs { get; set; }
+    }
 }

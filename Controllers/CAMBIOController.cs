@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Sistema_UVM_Control_Presupuestario;
+using Sistema_UVM_Control_Presupuestario.Servicios;
 
 namespace Sistema_UVM_Control_Presupuestario.Controllers
 {
@@ -17,7 +18,7 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
         // GET: CAMBIO
         public ActionResult Index()
         {
-            return View(db.CAMBIOs.ToList());
+            return View(new BOLETA_SRV().Listar());
         }
 
         // GET: CAMBIO/Details/5
@@ -27,7 +28,7 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            CAMBIO cAMBIO = db.CAMBIOs.Find(id);
+            CAMBIO cAMBIO = new CAMBIO_SRV().Buscar(id);
             if (cAMBIO == null)
             {
                 return HttpNotFound();
@@ -50,8 +51,9 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.CAMBIOs.Add(cAMBIO);
-                db.SaveChanges();
+                //db.CAMBIOs.Add(cAMBIO);
+                //db.SaveChanges();
+                new CAMBIO_SRV().Agregar(cAMBIO);
                 return RedirectToAction("Index");
             }
 
@@ -65,7 +67,7 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            CAMBIO cAMBIO = db.CAMBIOs.Find(id);
+            CAMBIO cAMBIO = new CAMBIO_SRV().Buscar(id);
             if (cAMBIO == null)
             {
                 return HttpNotFound();
@@ -82,8 +84,9 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(cAMBIO).State = EntityState.Modified;
-                db.SaveChanges();
+                //db.Entry(cAMBIO).State = EntityState.Modified;
+                //db.SaveChanges();
+                new CAMBIO_SRV().Editar(cAMBIO);
                 return RedirectToAction("Index");
             }
             return View(cAMBIO);
@@ -109,9 +112,10 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            CAMBIO cAMBIO = db.CAMBIOs.Find(id);
-            db.CAMBIOs.Remove(cAMBIO);
-            db.SaveChanges();
+            //CAMBIO cAMBIO = db.CAMBIOs.Find(id);
+            //db.CAMBIOs.Remove(cAMBIO);
+            //db.SaveChanges();
+            new CAMBIO_SRV().Eliminar(id);
             return RedirectToAction("Index");
         }
 
@@ -119,7 +123,7 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
         {
             if (disposing)
             {
-                db.Dispose();
+                new CAMBIO_SRV().Dispose();
             }
             base.Dispose(disposing);
         }

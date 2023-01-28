@@ -227,7 +227,7 @@
     </Key>
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="ESTADO" Type="bit" Nullable="false" />
-    <Property Name="NOMBRE_ROL" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="NOMBRE_ROL" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="PROGRAMAs">
     <Key>
@@ -1209,7 +1209,7 @@
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <NavigationProperty Name="USUARIOs" Relationship="SCP_UVMModel.USUARIOROL" FromRole="ROL" ToRole="USUARIO" />
           <Property Name="ESTADO" Type="Boolean" Nullable="false" />
-          <Property Name="NOMBRE_ROL" Type="String" Nullable="false" />
+          <Property Name="NOMBRE_ROL" Type="SCP_UVMModel.NOMBRE_ROL" Nullable="false" />
         </EntityType>
         <EntityType Name="PROGRAMA">
           <Key>
@@ -1738,6 +1738,11 @@
           <End Type="SCP_UVMModel.DETALLE_RENDICION" Role="DETALLE_RENDICION" Multiplicity="*" />
           <End Type="SCP_UVMModel.RENDICION" Role="RENDICION" Multiplicity="*" />
         </Association>
+        <EnumType Name="NOMBRE_ROL">
+          <Member Name="ADMIN" Value="1" />
+          <Member Name="ENCARGADA" Value="2" />
+          <Member Name="DIRECTORA" Value="3" />
+        </EnumType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->

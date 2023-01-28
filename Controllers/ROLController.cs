@@ -17,7 +17,7 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
         // GET: ROL
         public ActionResult Index()
         {
-            return View(db.ROLs.ToList());
+            return View(db.ROLes.ToList());
         }
 
         // GET: ROL/Details/5
@@ -27,7 +27,7 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            ROL rOL = db.ROLs.Find(id);
+            ROL rOL = db.ROLes.Find(id);
             if (rOL == null)
             {
                 return HttpNotFound();
@@ -50,7 +50,7 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.ROLs.Add(rOL);
+                db.ROLes.Add(rOL);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -65,7 +65,7 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            ROL rOL = db.ROLs.Find(id);
+            ROL rOL = db.ROLes.Find(id);
             if (rOL == null)
             {
                 return HttpNotFound();
@@ -96,7 +96,7 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            ROL rOL = db.ROLs.Find(id);
+            ROL rOL = db.ROLes.Find(id);
             if (rOL == null)
             {
                 return HttpNotFound();
@@ -109,8 +109,8 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            ROL rOL = db.ROLs.Find(id);
-            db.ROLs.Remove(rOL);
+            ROL rOL = db.ROLes.Find(id);
+            db.ROLes.Remove(rOL);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

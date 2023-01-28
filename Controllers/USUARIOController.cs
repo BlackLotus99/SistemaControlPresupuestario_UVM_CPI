@@ -39,7 +39,7 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
         // GET: USUARIO/Create
         public ActionResult Create()
         {
-            ViewBag.ROLID = new SelectList(db.ROLs, "ID", "NOMBRE_ROL");
+            ViewBag.ROLID = new SelectList(db.ROLes, "ID", "NOMBRE_ROL");
             return View();
         }
 
@@ -57,7 +57,7 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.ROLID = new SelectList(db.ROLs, "ID", "NOMBRE_ROL", uSUARIO.ROLID);
+            ViewBag.ROLID = new SelectList(db.ROLes, "ID", "NOMBRE_ROL", uSUARIO.ROLID);
             return View(uSUARIO);
         }
 
@@ -73,7 +73,7 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.ROLID = new SelectList(db.ROLs, "ID", "NOMBRE_ROL", uSUARIO.ROLID);
+            ViewBag.ROLID = new SelectList(db.ROLes, "ID", "NOMBRE_ROL", uSUARIO.ROLID);
             return View(uSUARIO);
         }
 
@@ -90,7 +90,7 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.ROLID = new SelectList(db.ROLs, "ID", "NOMBRE_ROL", uSUARIO.ROLID);
+            ViewBag.ROLID = new SelectList(db.ROLes, "ID", "NOMBRE_ROL", uSUARIO.ROLID);
             return View(uSUARIO);
         }
 

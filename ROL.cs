@@ -22,7 +22,7 @@ namespace Sistema_UVM_Control_Presupuestario
     
         public int ID { get; set; }
         public bool ESTADO { get; set; }
-        public string NOMBRE_ROL { get; set; }
+        public NOMBRE_ROL NOMBRE_ROL { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<USUARIO> USUARIOs { get; set; }
