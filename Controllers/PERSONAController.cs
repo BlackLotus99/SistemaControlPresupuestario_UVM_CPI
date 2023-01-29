@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Sistema_UVM_Control_Presupuestario;
+using Sistema_UVM_Control_Presupuestario.Servicios;
 
 namespace Sistema_UVM_Control_Presupuestario.Controllers
 {
@@ -17,7 +18,8 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
         // GET: PERSONA
         public ActionResult Index()
         {
-            return View(db.PERSONAs.ToList());
+            //return View(db.PERSONAs.ToList());
+            return View(new PERSONA_SRV().Listar());
         }
 
         // GET: PERSONA/Details/5
@@ -27,7 +29,8 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            PERSONA pERSONA = db.PERSONAs.Find(id);
+            //PERSONA pERSONA = db.PERSONAs.Find(id);
+            PERSONA pERSONA = new PERSONA_SRV().Buscar(id);
             if (pERSONA == null)
             {
                 return HttpNotFound();
@@ -50,8 +53,9 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.PERSONAs.Add(pERSONA);
-                db.SaveChanges();
+                //db.PERSONAs.Add(pERSONA);
+                //db.SaveChanges();
+                new PERSONA_SRV().Agregar(pERSONA);
                 return RedirectToAction("Index");
             }
 
@@ -65,7 +69,8 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            PERSONA pERSONA = db.PERSONAs.Find(id);
+            //PERSONA pERSONA = db.PERSONAs.Find(id);
+            PERSONA pERSONA = new PERSONA_SRV().Buscar(id);
             if (pERSONA == null)
             {
                 return HttpNotFound();
@@ -82,8 +87,9 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(pERSONA).State = EntityState.Modified;
-                db.SaveChanges();
+                //db.Entry(pERSONA).State = EntityState.Modified;
+                //db.SaveChanges();
+                new PERSONA_SRV().Editar(pERSONA);
                 return RedirectToAction("Index");
             }
             return View(pERSONA);
@@ -96,7 +102,8 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            PERSONA pERSONA = db.PERSONAs.Find(id);
+            //PERSONA pERSONA = db.PERSONAs.Find(id);
+            PERSONA pERSONA = new PERSONA_SRV().Buscar(id);
             if (pERSONA == null)
             {
                 return HttpNotFound();
@@ -109,9 +116,10 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            PERSONA pERSONA = db.PERSONAs.Find(id);
-            db.PERSONAs.Remove(pERSONA);
-            db.SaveChanges();
+            //PERSONA pERSONA = db.PERSONAs.Find(id);
+            //db.PERSONAs.Remove(pERSONA);
+            //db.SaveChanges();
+            new PERSONA_SRV().Eliminar(id);
             return RedirectToAction("Index");
         }
 

@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Sistema_UVM_Control_Presupuestario;
+using Sistema_UVM_Control_Presupuestario.Servicios;
 
 namespace Sistema_UVM_Control_Presupuestario.Controllers
 {
@@ -17,8 +18,9 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
         // GET: PROP_DIPLOMADO
         public ActionResult Index()
         {
-            var pROP_DIPLOMADO = db.PROP_DIPLOMADOs.Include(p => p.PERSONA_NATURAL);
-            return View(pROP_DIPLOMADO.ToList());
+            //var pROP_DIPLOMADO = db.PROP_DIPLOMADOs.Include(p => p.PERSONA_NATURAL);
+            //return View(pROP_DIPLOMADO.ToList());
+            return View(new PROP_DIPLOMADO_SRV().Listar());
         }
 
         // GET: PROP_DIPLOMADO/Details/5
@@ -28,7 +30,8 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            PROP_DIPLOMADO pROP_DIPLOMADO = db.PROP_DIPLOMADOs.Find(id);
+            //PROP_DIPLOMADO pROP_DIPLOMADO = db.PROP_DIPLOMADOs.Find(id);
+            PROP_DIPLOMADO pROP_DIPLOMADO = new PROP_DIPLOMADO_SRV().Buscar(id);
             if (pROP_DIPLOMADO == null)
             {
                 return HttpNotFound();
@@ -52,8 +55,9 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.PROP_DIPLOMADOs.Add(pROP_DIPLOMADO);
-                db.SaveChanges();
+                //db.PROP_DIPLOMADOs.Add(pROP_DIPLOMADO);
+                //db.SaveChanges();
+                new PROP_DIPLOMADO_SRV().Agregar(pROP_DIPLOMADO);
                 return RedirectToAction("Index");
             }
 
@@ -68,7 +72,8 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            PROP_DIPLOMADO pROP_DIPLOMADO = db.PROP_DIPLOMADOs.Find(id);
+            //PROP_DIPLOMADO pROP_DIPLOMADO = db.PROP_DIPLOMADOs.Find(id);
+            PROP_DIPLOMADO pROP_DIPLOMADO = new PROP_DIPLOMADO_SRV().Buscar(id);
             if (pROP_DIPLOMADO == null)
             {
                 return HttpNotFound();
@@ -86,8 +91,9 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(pROP_DIPLOMADO).State = EntityState.Modified;
-                db.SaveChanges();
+                //db.Entry(pROP_DIPLOMADO).State = EntityState.Modified;
+                //db.SaveChanges();
+                new PROP_DIPLOMADO_SRV().Editar(pROP_DIPLOMADO);
                 return RedirectToAction("Index");
             }
             ViewBag.PERSONA_NATURALID = new SelectList(db.PERSONA_NATURALes, "ID", "APELLIDO_PATERNO", pROP_DIPLOMADO.PERSONA_NATURALID);
@@ -101,7 +107,8 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            PROP_DIPLOMADO pROP_DIPLOMADO = db.PROP_DIPLOMADOs.Find(id);
+            //PROP_DIPLOMADO pROP_DIPLOMADO = db.PROP_DIPLOMADOs.Find(id);
+            PROP_DIPLOMADO pROP_DIPLOMADO = new PROP_DIPLOMADO_SRV().Buscar(id);
             if (pROP_DIPLOMADO == null)
             {
                 return HttpNotFound();
@@ -114,9 +121,10 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            PROP_DIPLOMADO pROP_DIPLOMADO = db.PROP_DIPLOMADOs.Find(id);
-            db.PROP_DIPLOMADOs.Remove(pROP_DIPLOMADO);
-            db.SaveChanges();
+            //PROP_DIPLOMADO pROP_DIPLOMADO = db.PROP_DIPLOMADOs.Find(id);
+            //db.PROP_DIPLOMADOs.Remove(pROP_DIPLOMADO);
+            //db.SaveChanges();
+            new PROP_DIPLOMADO_SRV().Eliminar(id);
             return RedirectToAction("Index");
         }
 
@@ -124,7 +132,8 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
         {
             if (disposing)
             {
-                db.Dispose();
+                //db.Dispose();
+                new PROP_DIPLOMADO_SRV().Dispose();
             }
             base.Dispose(disposing);
         }

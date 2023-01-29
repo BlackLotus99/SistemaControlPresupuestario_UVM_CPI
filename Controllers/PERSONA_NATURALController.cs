@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Sistema_UVM_Control_Presupuestario;
+using Sistema_UVM_Control_Presupuestario.Servicios;
 
 namespace Sistema_UVM_Control_Presupuestario.Controllers
 {
@@ -17,7 +18,8 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
         // GET: PERSONA_NATURAL
         public ActionResult Index()
         {
-            return View(db.PERSONA_NATURALes.ToList());
+            //return View(db.PERSONA_NATURALes.ToList());
+            return View(new PERSONA_NATURAL_SRV().Listar(););
         }
 
         // GET: PERSONA_NATURAL/Details/5
@@ -27,7 +29,8 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            PERSONA_NATURALes pERSONA_NATURAL = db.PERSONA_NATURALes.Find(id);
+            //PERSONA_NATURALes pERSONA_NATURAL = db.PERSONA_NATURALes.Find(id);
+            PERSONA_NATURALes pERSONA_NATURAL = new PERSONA_NATURAL_SRV().Buscar(id);
             if (pERSONA_NATURAL == null)
             {
                 return HttpNotFound();
@@ -50,8 +53,9 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.PERSONA_NATURALes.Add(pERSONA_NATURAL);
-                db.SaveChanges();
+                //db.PERSONA_NATURALes.Add(pERSONA_NATURAL);
+                //db.SaveChanges();
+                new PERSONA_NATURAL_SRV().Agregar(pERSONA_NATURAL);
                 return RedirectToAction("Index");
             }
 
@@ -65,7 +69,8 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            PERSONA_NATURALes pERSONA_NATURAL = db.PERSONA_NATURALes.Find(id);
+            //PERSONA_NATURALes pERSONA_NATURAL = db.PERSONA_NATURALes.Find(id);
+            PERSONA_NATURALes pERSONA_NATURAL = new PERSONA_NATURAL_SRV().Buscar(id);
             if (pERSONA_NATURAL == null)
             {
                 return HttpNotFound();
@@ -82,8 +87,9 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(pERSONA_NATURAL).State = EntityState.Modified;
-                db.SaveChanges();
+                //db.Entry(pERSONA_NATURAL).State = EntityState.Modified;
+                //db.SaveChanges();
+                new PERSONA_NATURAL_SRV().Editar(pERSONA_NATURAL);
                 return RedirectToAction("Index");
             }
             return View(pERSONA_NATURAL);
@@ -96,7 +102,8 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            PERSONA_NATURALes pERSONA_NATURAL = db.PERSONA_NATURALes.Find(id);
+            //PERSONA_NATURALes pERSONA_NATURAL = db.PERSONA_NATURALes.Find(id);
+            PERSONA_NATURALes pERSONA_NATURAL = new PERSONA_NATURAL_SRV().Buscar(id);
             if (pERSONA_NATURAL == null)
             {
                 return HttpNotFound();
@@ -109,9 +116,10 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            PERSONA_NATURALes pERSONA_NATURAL = db.PERSONA_NATURALes.Find(id);
-            db.PERSONA_NATURALes.Remove(pERSONA_NATURAL);
-            db.SaveChanges();
+            //PERSONA_NATURALes pERSONA_NATURAL = db.PERSONA_NATURALes.Find(id);
+            //db.PERSONA_NATURALes.Remove(pERSONA_NATURAL);
+            //db.SaveChanges();
+            new PERSONA_NATURAL_SRV().Eliminar(id);
             return RedirectToAction("Index");
         }
 
@@ -119,7 +127,8 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
         {
             if (disposing)
             {
-                db.Dispose();
+                //db.Dispose();
+                new PERSONA_NATURAL_SRV().Dispose();
             }
             base.Dispose(disposing);
         }

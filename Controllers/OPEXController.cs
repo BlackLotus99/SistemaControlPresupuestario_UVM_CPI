@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Sistema_UVM_Control_Presupuestario;
+using Sistema_UVM_Control_Presupuestario.Servicios;
 
 namespace Sistema_UVM_Control_Presupuestario.Controllers
 {
@@ -17,8 +18,9 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
         // GET: OPEX
         public ActionResult Index()
         {
-            var oPEXes = db.OPEXes.Include(o => o.PERSONA_NATURAL);
-            return View(oPEXes.ToList());
+            //var oPEXes = db.OPEXes.Include(o => o.PERSONA_NATURAL);
+            //return View(oPEXes.ToList());
+            return View(new OPEX_SRV().Listar());
         }
 
         // GET: OPEX/Details/5
@@ -28,7 +30,8 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            OPEX oPEX = db.OPEXes.Find(id);
+            //OPEX oPEX = db.OPEXes.Find(id);
+            OPEX oPEX = new OPEX_SRV().Buscar(id);
             if (oPEX == null)
             {
                 return HttpNotFound();
@@ -52,8 +55,9 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.OPEXes.Add(oPEX);
-                db.SaveChanges();
+                //db.OPEXes.Add(oPEX);
+                //db.SaveChanges();
+                new OPEX_SRV().Agregar(oPEX);
                 return RedirectToAction("Index");
             }
 
@@ -68,7 +72,8 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            OPEX oPEX = db.OPEXes.Find(id);
+            //OPEX oPEX = db.OPEXes.Find(id);
+            OPEX oPEX = new OPEX_SRV().Buscar(id);
             if (oPEX == null)
             {
                 return HttpNotFound();
@@ -86,8 +91,9 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(oPEX).State = EntityState.Modified;
-                db.SaveChanges();
+                //db.Entry(oPEX).State = EntityState.Modified;
+                //db.SaveChanges();
+                new OPEX_SRV().Editar(oPEX);
                 return RedirectToAction("Index");
             }
             ViewBag.PERSONA_NATURALID = new SelectList(db.PERSONA_NATURALes, "ID", "APELLIDO_PATERNO", oPEX.PERSONA_NATURALID);
@@ -101,7 +107,8 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            OPEX oPEX = db.OPEXes.Find(id);
+            //OPEX oPEX = db.OPEXes.Find(id);
+            OPEX oPEX = new OPEX_SRV().Buscar(id);
             if (oPEX == null)
             {
                 return HttpNotFound();
@@ -114,9 +121,10 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            OPEX oPEX = db.OPEXes.Find(id);
-            db.OPEXes.Remove(oPEX);
-            db.SaveChanges();
+            //OPEX oPEX = db.OPEXes.Find(id);
+            //db.OPEXes.Remove(oPEX);
+            //db.SaveChanges();
+            new OPEX_SRV().Eliminar(id);
             return RedirectToAction("Index");
         }
 
@@ -124,7 +132,8 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
         {
             if (disposing)
             {
-                db.Dispose();
+                //db.Dispose();
+                new OPEX_SRV().Dispose();
             }
             base.Dispose(disposing);
         }

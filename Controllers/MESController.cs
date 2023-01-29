@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Sistema_UVM_Control_Presupuestario;
+using Sistema_UVM_Control_Presupuestario.Servicios;
 
 namespace Sistema_UVM_Control_Presupuestario.Controllers
 {
@@ -17,8 +18,9 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
         // GET: MES
         public ActionResult Index()
         {
-            var mESes = db.MEs.Include(m => m.CONSOLIDADO);
-            return View(mESes.ToList());
+            //var mESes = db.MEs.Include(m => m.CONSOLIDADO);
+            //return View(mESes.ToList());
+            return View(new MES_SRV().Listar());
         }
 
         // GET: MES/Details/5
@@ -28,7 +30,8 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            MES mES = db.MEs.Find(id);
+            //MES mES = db.MEs.Find(id);
+            MES mES = new MES_SRV().Buscar(id);
             if (mES == null)
             {
                 return HttpNotFound();
@@ -52,8 +55,9 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.MEs.Add(mES);
-                db.SaveChanges();
+                //db.MEs.Add(mES);
+                //db.SaveChanges();
+                new MES_SRV().Agregar(mES);
                 return RedirectToAction("Index");
             }
 
@@ -68,7 +72,8 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            MES mES = db.MEs.Find(id);
+            //MES mES = db.MEs.Find(id);
+            MES mES = new MES_SRV().Buscar(id);
             if (mES == null)
             {
                 return HttpNotFound();
@@ -86,8 +91,9 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(mES).State = EntityState.Modified;
-                db.SaveChanges();
+                //db.Entry(mES).State = EntityState.Modified;
+                //db.SaveChanges();
+                new MES_SRV().Editar(mES);
                 return RedirectToAction("Index");
             }
             ViewBag.CONSOLIDADOID = new SelectList(db.CONSOLIDADOs, "ID", "MONTO", mES.CONSOLIDADOID);
@@ -101,7 +107,8 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            MES mES = db.MEs.Find(id);
+            //MES mES = db.MEs.Find(id);
+            MES mES = new MES_SRV().Buscar(id);
             if (mES == null)
             {
                 return HttpNotFound();
@@ -114,9 +121,10 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            MES mES = db.MEs.Find(id);
-            db.MEs.Remove(mES);
-            db.SaveChanges();
+            //MES mES = db.MEs.Find(id);
+            //db.MEs.Remove(mES);
+            //db.SaveChanges();
+            new MES_SRV().Eliminar(id);
             return RedirectToAction("Index");
         }
 
@@ -124,7 +132,8 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
         {
             if (disposing)
             {
-                db.Dispose();
+                //db.Dispose();
+                new MES_SRV().Dispose();
             }
             base.Dispose(disposing);
         }

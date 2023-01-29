@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Sistema_UVM_Control_Presupuestario;
+using Sistema_UVM_Control_Presupuestario.Servicios;
 
 namespace Sistema_UVM_Control_Presupuestario.Controllers
 {
@@ -17,8 +18,9 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
         // GET: USUARIO
         public ActionResult Index()
         {
-            var uSUARIOs = db.USUARIOs.Include(u => u.ROL);
-            return View(uSUARIOs.ToList());
+            //var uSUARIOs = db.USUARIOs.Include(u => u.ROL);
+            //return View(uSUARIOs.ToList());
+            return View(new USUARIO_SRV().Listar());
         }
 
         // GET: USUARIO/Details/5
@@ -28,7 +30,8 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            USUARIO uSUARIO = db.USUARIOs.Find(id);
+            //USUARIO uSUARIO = db.USUARIOs.Find(id);
+            USUARIO uSUARIO = new USUARIO_SRV().Buscar(id);
             if (uSUARIO == null)
             {
                 return HttpNotFound();
@@ -52,8 +55,9 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.USUARIOs.Add(uSUARIO);
-                db.SaveChanges();
+                //db.USUARIOs.Add(uSUARIO);
+                //db.SaveChanges();
+                new USUARIO_SRV().Agregar(uSUARIO);
                 return RedirectToAction("Index");
             }
 
@@ -68,7 +72,8 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            USUARIO uSUARIO = db.USUARIOs.Find(id);
+            //USUARIO uSUARIO = db.USUARIOs.Find(id);
+            USUARIO uSUARIO = new USUARIO_SRV().Buscar(id);
             if (uSUARIO == null)
             {
                 return HttpNotFound();
@@ -86,8 +91,9 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(uSUARIO).State = EntityState.Modified;
-                db.SaveChanges();
+                //db.Entry(uSUARIO).State = EntityState.Modified;
+                //db.SaveChanges();
+                new USUARIO_SRV().Editar(uSUARIO);
                 return RedirectToAction("Index");
             }
             ViewBag.ROLID = new SelectList(db.ROLes, "ID", "NOMBRE_ROL", uSUARIO.ROLID);
@@ -101,7 +107,8 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            USUARIO uSUARIO = db.USUARIOs.Find(id);
+            //USUARIO uSUARIO = db.USUARIOs.Find(id);
+            USUARIO uSUARIO = new USUARIO_SRV().Buscar(id);
             if (uSUARIO == null)
             {
                 return HttpNotFound();
@@ -114,9 +121,10 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            USUARIO uSUARIO = db.USUARIOs.Find(id);
-            db.USUARIOs.Remove(uSUARIO);
-            db.SaveChanges();
+            //USUARIO uSUARIO = db.USUARIOs.Find(id);
+            //db.USUARIOs.Remove(uSUARIO);
+            //db.SaveChanges();
+            new USUARIO_SRV().Eliminar(id);
             return RedirectToAction("Index");
         }
 
@@ -124,7 +132,8 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
         {
             if (disposing)
             {
-                db.Dispose();
+                //db.Dispose();
+                new USUARIO_SRV().Dispose();
             }
             base.Dispose(disposing);
         }

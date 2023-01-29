@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Sistema_UVM_Control_Presupuestario;
+using Sistema_UVM_Control_Presupuestario.Servicios;
 
 namespace Sistema_UVM_Control_Presupuestario.Controllers
 {
@@ -17,7 +18,9 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
         // GET: PROGRAMA
         public ActionResult Index()
         {
-            return View(db.PROGRAMAs.ToList());
+            //return View(db.PROGRAMAs.ToList());
+            new PROGRAMA_SRV().Listar();
+            return View();
         }
 
         // GET: PROGRAMA/Details/5
@@ -27,7 +30,8 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            PROGRAMA pROGRAMA = db.PROGRAMAs.Find(id);
+            //PROGRAMA pROGRAMA = db.PROGRAMAs.Find(id);
+            PROGRAMA pROGRAMA = new PROGRAMA_SRV().Buscar(id);
             if (pROGRAMA == null)
             {
                 return HttpNotFound();
@@ -50,8 +54,9 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.PROGRAMAs.Add(pROGRAMA);
-                db.SaveChanges();
+                //db.PROGRAMAs.Add(pROGRAMA);
+                //db.SaveChanges();
+                new PROGRAMA_SRV().Agregar(pROGRAMA);
                 return RedirectToAction("Index");
             }
 
@@ -65,7 +70,8 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            PROGRAMA pROGRAMA = db.PROGRAMAs.Find(id);
+            //PROGRAMA pROGRAMA = db.PROGRAMAs.Find(id);
+            PROGRAMA pROGRAMA = new PROGRAMA_SRV().Buscar(id);
             if (pROGRAMA == null)
             {
                 return HttpNotFound();
@@ -82,8 +88,9 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(pROGRAMA).State = EntityState.Modified;
-                db.SaveChanges();
+                //db.Entry(pROGRAMA).State = EntityState.Modified;
+                //db.SaveChanges();
+                new PROGRAMA_SRV().Editar(pROGRAMA);
                 return RedirectToAction("Index");
             }
             return View(pROGRAMA);
@@ -96,7 +103,8 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            PROGRAMA pROGRAMA = db.PROGRAMAs.Find(id);
+            //PROGRAMA pROGRAMA = db.PROGRAMAs.Find(id);
+            PROGRAMA pROGRAMA = new PROGRAMA_SRV().Buscar(id);
             if (pROGRAMA == null)
             {
                 return HttpNotFound();
@@ -109,9 +117,10 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            PROGRAMA pROGRAMA = db.PROGRAMAs.Find(id);
-            db.PROGRAMAs.Remove(pROGRAMA);
-            db.SaveChanges();
+            //PROGRAMA pROGRAMA = db.PROGRAMAs.Find(id);
+            //db.PROGRAMAs.Remove(pROGRAMA);
+            //db.SaveChanges();
+            new PROGRAMA_SRV().Eliminar(id);
             return RedirectToAction("Index");
         }
 
@@ -119,7 +128,8 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
         {
             if (disposing)
             {
-                db.Dispose();
+                //db.Dispose();
+                new PROGRAMA_SRV().Dispose();
             }
             base.Dispose(disposing);
         }

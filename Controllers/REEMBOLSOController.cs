@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Sistema_UVM_Control_Presupuestario;
+using Sistema_UVM_Control_Presupuestario.Servicios;                                                                                                                         
 
 namespace Sistema_UVM_Control_Presupuestario.Controllers
 {
@@ -17,8 +18,9 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
         // GET: REEMBOLSO
         public ActionResult Index()
         {
-            var rEEMBOLSOes = db.REEMBOLSOs.Include(r => r.PERSONA_NATURAL);
-            return View(rEEMBOLSOes.ToList());
+            //var rEEMBOLSOes = db.REEMBOLSOs.Include(r => r.PERSONA_NATURAL);
+            //return View(rEEMBOLSOes.ToList());
+            return View(new REEMBOLSO_SRV().Listar());
         }
 
         // GET: REEMBOLSO/Details/5
@@ -28,7 +30,8 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            REEMBOLSO rEEMBOLSO = db.REEMBOLSOs.Find(id);
+            //REEMBOLSO rEEMBOLSO = db.REEMBOLSOs.Find(id);
+            REEMBOLSO rEEMBOLSO = new REEMBOLSO_SRV().Buscar(id);
             if (rEEMBOLSO == null)
             {
                 return HttpNotFound();
@@ -52,8 +55,9 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.REEMBOLSOs.Add(rEEMBOLSO);
-                db.SaveChanges();
+                //db.REEMBOLSOs.Add(rEEMBOLSO);
+                //db.SaveChanges();
+                new REEMBOLSO_SRV().Agregar(rEEMBOLSO);
                 return RedirectToAction("Index");
             }
 
@@ -68,7 +72,8 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            REEMBOLSO rEEMBOLSO = db.REEMBOLSOs.Find(id);
+            //REEMBOLSO rEEMBOLSO = db.REEMBOLSOs.Find(id);
+            REEMBOLSO rEEMBOLSO = new REEMBOLSO_SRV().Buscar(id);
             if (rEEMBOLSO == null)
             {
                 return HttpNotFound();
@@ -86,8 +91,9 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(rEEMBOLSO).State = EntityState.Modified;
-                db.SaveChanges();
+                //db.Entry(rEEMBOLSO).State = EntityState.Modified;
+                //db.SaveChanges();
+                new REEMBOLSO_SRV().Editar(rEEMBOLSO);
                 return RedirectToAction("Index");
             }
             ViewBag.PERSONA_NATURALID = new SelectList(db.PERSONA_NATURALes, "ID", "APELLIDO_PATERNO", rEEMBOLSO.PERSONA_NATURALID);
@@ -101,7 +107,8 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            REEMBOLSO rEEMBOLSO = db.REEMBOLSOs.Find(id);
+            //REEMBOLSO rEEMBOLSO = db.REEMBOLSOs.Find(id);
+            REEMBOLSO rEEMBOLSO = new REEMBOLSO_SRV().Buscar(id);
             if (rEEMBOLSO == null)
             {
                 return HttpNotFound();
@@ -114,9 +121,10 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            REEMBOLSO rEEMBOLSO = db.REEMBOLSOs.Find(id);
-            db.REEMBOLSOs.Remove(rEEMBOLSO);
-            db.SaveChanges();
+            //REEMBOLSO rEEMBOLSO = db.REEMBOLSOs.Find(id);
+            //db.REEMBOLSOs.Remove(rEEMBOLSO);
+            //db.SaveChanges();
+            new REEMBOLSO_SRV().Eliminar(id);
             return RedirectToAction("Index");
         }
 
@@ -124,7 +132,8 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
         {
             if (disposing)
             {
-                db.Dispose();
+                //db.Dispose();
+                new REEMBOLSO_SRV().Dispose();
             }
             base.Dispose(disposing);
         }

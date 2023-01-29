@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Sistema_UVM_Control_Presupuestario;
+using Sistema_UVM_Control_Presupuestario.Servicios;
 
 namespace Sistema_UVM_Control_Presupuestario.Controllers
 {
@@ -17,7 +18,8 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
         // GET: PERSONA_JURIDICA
         public ActionResult Index()
         {
-            return View(db.PERSONA_JURIDICAs.ToList());
+            //return View(db.PERSONA_JURIDICAs.ToList());
+            return View(new PERSONA_JURIDICA_SRV().Listar());
         }
 
         // GET: PERSONA_JURIDICA/Details/5
@@ -27,7 +29,8 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            PERSONA_JURIDICAs pERSONA_JURIDICA = db.PERSONA_JURIDICAs.Find(id);
+            //PERSONA_JURIDICAs pERSONA_JURIDICA = db.PERSONA_JURIDICAs.Find(id);
+            PERSONA_JURIDICAs pERSONA_JURIDICA = new PERSONA_JURIDICA_SRV().Buscar(id);
             if (pERSONA_JURIDICA == null)
             {
                 return HttpNotFound();
@@ -50,8 +53,9 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.PERSONA_JURIDICAs.Add(pERSONA_JURIDICA);
-                db.SaveChanges();
+                //db.PERSONA_JURIDICAs.Add(pERSONA_JURIDICA);
+                //db.SaveChanges();
+                new PERSONA_JURIDICA_SRV().Agregar(pERSONA_JURIDICA);
                 return RedirectToAction("Index");
             }
 
@@ -65,7 +69,8 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            PERSONA_JURIDICAs pERSONA_JURIDICA = db.PERSONA_JURIDICAs.Find(id);
+            //PERSONA_JURIDICAs pERSONA_JURIDICA = db.PERSONA_JURIDICAs.Find(id);
+            PERSONA_JURIDICAs pERSONA_JURIDICA = new PERSONA_JURIDICA_SRV().Buscar(id);
             if (pERSONA_JURIDICA == null)
             {
                 return HttpNotFound();
@@ -82,8 +87,9 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(pERSONA_JURIDICA).State = EntityState.Modified;
-                db.SaveChanges();
+                //db.Entry(pERSONA_JURIDICA).State = EntityState.Modified;
+                //db.SaveChanges();
+                new PERSONA_JURIDICA_SRV().Editar(pERSONA_JURIDICA);
                 return RedirectToAction("Index");
             }
             return View(pERSONA_JURIDICA);
@@ -96,7 +102,8 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            PERSONA_JURIDICAs pERSONA_JURIDICA = db.PERSONA_JURIDICAs.Find(id);
+            //PERSONA_JURIDICAs pERSONA_JURIDICA = db.PERSONA_JURIDICAs.Find(id);
+            PERSONA_JURIDICAs pERSONA_JURIDICA = new PERSONA_JURIDICA_SRV().Buscar(id);
             if (pERSONA_JURIDICA == null)
             {
                 return HttpNotFound();
@@ -109,9 +116,10 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            PERSONA_JURIDICAs pERSONA_JURIDICA = db.PERSONA_JURIDICAs.Find(id);
-            db.PERSONA_JURIDICAs.Remove(pERSONA_JURIDICA);
-            db.SaveChanges();
+            //PERSONA_JURIDICAs pERSONA_JURIDICA = db.PERSONA_JURIDICAs.Find(id);
+            //db.PERSONA_JURIDICAs.Remove(pERSONA_JURIDICA);
+            //db.SaveChanges();
+            new PERSONA_JURIDICA_SRV().Eliminar(id);
             return RedirectToAction("Index");
         }
 
@@ -119,7 +127,8 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
         {
             if (disposing)
             {
-                db.Dispose();
+                //db.Dispose();
+                new PERSONA_JURIDICA_SRV().Dispose();
             }
             base.Dispose(disposing);
         }

@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Sistema_UVM_Control_Presupuestario;
+using Sistema_UVM_Control_Presupuestario.Servicios;
 
 namespace Sistema_UVM_Control_Presupuestario.Controllers
 {
@@ -17,8 +18,9 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
         // GET: CARRERA
         public ActionResult Index()
         {
-            var cARRERAs = db.CARRERAs.Include(c => c.CONSOLIDADO);
-            return View(cARRERAs.ToList());
+            //var cARRERAs = db.CARRERAs.Include(c => c.CONSOLIDADO);
+            //return View(cARRERAs.ToList());
+            return View(new CARRERA_SRV().Listar());
         }
 
         // GET: CARRERA/Details/5
@@ -28,7 +30,8 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            CARRERA cARRERA = db.CARRERAs.Find(id);
+            //CARRERA cARRERA = db.CARRERAs.Find(id);
+            CARRERA cARRERA = new CARRERA_SRV().Buscar(id);
             if (cARRERA == null)
             {
                 return HttpNotFound();
@@ -52,8 +55,9 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.CARRERAs.Add(cARRERA);
-                db.SaveChanges();
+                //db.CARRERAs.Add(cARRERA);
+                //db.SaveChanges();
+                new CARRERA_SRV().Agregar(cARRERA);
                 return RedirectToAction("Index");
             }
 
@@ -68,7 +72,8 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            CARRERA cARRERA = db.CARRERAs.Find(id);
+            //CARRERA cARRERA = db.CARRERAs.Find(id);
+            CARRERA cARRERA = new CARRERA_SRV().Buscar(id);
             if (cARRERA == null)
             {
                 return HttpNotFound();
@@ -86,8 +91,9 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(cARRERA).State = EntityState.Modified;
-                db.SaveChanges();
+                //db.Entry(cARRERA).State = EntityState.Modified;
+                //db.SaveChanges();
+                new CARRERA_SRV().Editar(cARRERA);
                 return RedirectToAction("Index");
             }
             ViewBag.CONSOLIDADOID = new SelectList(db.CONSOLIDADOs, "ID", "MONTO", cARRERA.CONSOLIDADOID);
@@ -101,7 +107,8 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            CARRERA cARRERA = db.CARRERAs.Find(id);
+            //CARRERA cARRERA = db.CARRERAs.Find(id);
+            CARRERA cARRERA = new CARRERA_SRV().Buscar(id);
             if (cARRERA == null)
             {
                 return HttpNotFound();
@@ -114,9 +121,10 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            CARRERA cARRERA = db.CARRERAs.Find(id);
-            db.CARRERAs.Remove(cARRERA);
-            db.SaveChanges();
+            //CARRERA cARRERA = db.CARRERAs.Find(id);
+            //db.CARRERAs.Remove(cARRERA);
+            //db.SaveChanges();
+            new CARRERA_SRV().Eliminar(id);
             return RedirectToAction("Index");
         }
 
@@ -124,7 +132,8 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
         {
             if (disposing)
             {
-                db.Dispose();
+                //db.Dispose();
+                new CARRERA_SRV().Dispose();
             }
             base.Dispose(disposing);
         }

@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Sistema_UVM_Control_Presupuestario;
+using Sistema_UVM_Control_Presupuestario.Servicios;
 
 namespace Sistema_UVM_Control_Presupuestario.Controllers
 {
@@ -17,7 +18,8 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
         // GET: SALIDA_TERRENO
         public ActionResult Index()
         {
-            return View(db.SALIDA_TERRENOs.ToList());
+            //return View(db.SALIDA_TERRENOs.ToList());
+            return View(new SALIDA_TERRENO_SRV().Listar());
         }
 
         // GET: SALIDA_TERRENO/Details/5
@@ -27,7 +29,8 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            SALIDA_TERRENO sALIDA_TERRENO = db.SALIDA_TERRENOs.Find(id);
+            //SALIDA_TERRENO sALIDA_TERRENO = db.SALIDA_TERRENOs.Find(id);
+            SALIDA_TERRENO sALIDA_TERRENO = new SALIDA_TERRENO_SRV().Buscar(id);
             if (sALIDA_TERRENO == null)
             {
                 return HttpNotFound();
@@ -50,8 +53,9 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.SALIDA_TERRENOs.Add(sALIDA_TERRENO);
-                db.SaveChanges();
+                //db.SALIDA_TERRENOs.Add(sALIDA_TERRENO);
+                //db.SaveChanges();
+                new SALIDA_TERRENO_SRV().Agregar(sALIDA_TERRENO);
                 return RedirectToAction("Index");
             }
 
@@ -65,7 +69,8 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            SALIDA_TERRENO sALIDA_TERRENO = db.SALIDA_TERRENOs.Find(id);
+            //SALIDA_TERRENO sALIDA_TERRENO = db.SALIDA_TERRENOs.Find(id);
+            SALIDA_TERRENO sALIDA_TERRENO = new SALIDA_TERRENO_SRV().Buscar(id);
             if (sALIDA_TERRENO == null)
             {
                 return HttpNotFound();
@@ -82,8 +87,9 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(sALIDA_TERRENO).State = EntityState.Modified;
-                db.SaveChanges();
+                //db.Entry(sALIDA_TERRENO).State = EntityState.Modified;
+                //db.SaveChanges();
+                new SALIDA_TERRENO_SRV().Editar(sALIDA_TERRENO);
                 return RedirectToAction("Index");
             }
             return View(sALIDA_TERRENO);
@@ -96,7 +102,8 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            SALIDA_TERRENO sALIDA_TERRENO = db.SALIDA_TERRENOs.Find(id);
+            //SALIDA_TERRENO sALIDA_TERRENO = db.SALIDA_TERRENOs.Find(id);
+            SALIDA_TERRENO sALIDA_TERRENO = new SALIDA_TERRENO_SRV().Buscar(id);
             if (sALIDA_TERRENO == null)
             {
                 return HttpNotFound();
@@ -109,9 +116,10 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            SALIDA_TERRENO sALIDA_TERRENO = db.SALIDA_TERRENOs.Find(id);
-            db.SALIDA_TERRENOs.Remove(sALIDA_TERRENO);
-            db.SaveChanges();
+            //SALIDA_TERRENO sALIDA_TERRENO = db.SALIDA_TERRENOs.Find(id);
+            //db.SALIDA_TERRENOs.Remove(sALIDA_TERRENO);
+            //db.SaveChanges();
+            new SALIDA_TERRENO_SRV().Eliminar(id);
             return RedirectToAction("Index");
         }
 
@@ -119,7 +127,8 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
         {
             if (disposing)
             {
-                db.Dispose();
+                //db.Dispose();
+                new SALIDA_TERRENO_SRV().Dispose();
             }
             base.Dispose(disposing);
         }

@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Sistema_UVM_Control_Presupuestario;
+using Sistema_UVM_Control_Presupuestario.Servicios;
 
 namespace Sistema_UVM_Control_Presupuestario.Controllers
 {
@@ -17,8 +18,9 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
         // GET: MAGISTER
         public ActionResult Index()
         {
-            var mAGISTERs = db.MAGISTERs.Include(m => m.CONSOLIDADO);
-            return View(mAGISTERs.ToList());
+            //var mAGISTERs = db.MAGISTERs.Include(m => m.CONSOLIDADO);
+            //return View(mAGISTERs.ToList());
+            return View(new MAGISTER_SRV().Listar());
         }
 
         // GET: MAGISTER/Details/5
@@ -28,7 +30,8 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            MAGISTER mAGISTER = db.MAGISTERs.Find(id);
+            //MAGISTER mAGISTER = db.MAGISTERs.Find(id);
+            MAGISTER mAGISTER = new MAGISTER_SRV().Buscar(id);
             if (mAGISTER == null)
             {
                 return HttpNotFound();
@@ -52,8 +55,9 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.MAGISTERs.Add(mAGISTER);
-                db.SaveChanges();
+                //db.MAGISTERs.Add(mAGISTER);
+                //db.SaveChanges();
+                new MAGISTER_SRV().Agregar(mAGISTER);
                 return RedirectToAction("Index");
             }
 
@@ -68,7 +72,8 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            MAGISTER mAGISTER = db.MAGISTERs.Find(id);
+            //MAGISTER mAGISTER = db.MAGISTERs.Find(id);
+            MAGISTER mAGISTER = new MAGISTER_SRV().Buscar(id);
             if (mAGISTER == null)
             {
                 return HttpNotFound();
@@ -86,8 +91,9 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(mAGISTER).State = EntityState.Modified;
-                db.SaveChanges();
+                //db.Entry(mAGISTER).State = EntityState.Modified;
+                //db.SaveChanges();
+                new MAGISTER_SRV().Editar(mAGISTER);
                 return RedirectToAction("Index");
             }
             ViewBag.CONSOLIDADOID = new SelectList(db.CONSOLIDADOs, "ID", "MONTO", mAGISTER.CONSOLIDADOID);
@@ -101,7 +107,8 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            MAGISTER mAGISTER = db.MAGISTERs.Find(id);
+            //MAGISTER mAGISTER = db.MAGISTERs.Find(id);
+            MAGISTER mAGISTER = new MAGISTER_SRV().Buscar(id);
             if (mAGISTER == null)
             {
                 return HttpNotFound();
@@ -114,9 +121,10 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            MAGISTER mAGISTER = db.MAGISTERs.Find(id);
-            db.MAGISTERs.Remove(mAGISTER);
-            db.SaveChanges();
+            //MAGISTER mAGISTER = db.MAGISTERs.Find(id);
+            //db.MAGISTERs.Remove(mAGISTER);
+            //db.SaveChanges();
+            new MAGISTER_SRV().Eliminar(id);
             return RedirectToAction("Index");
         }
 
@@ -124,7 +132,8 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
         {
             if (disposing)
             {
-                db.Dispose();
+                //db.Dispose();
+                new MAGISTER_SRV() .Dispose();
             }
             base.Dispose(disposing);
         }

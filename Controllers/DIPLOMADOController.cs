@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Sistema_UVM_Control_Presupuestario;
+using Sistema_UVM_Control_Presupuestario.Servicios;
 
 namespace Sistema_UVM_Control_Presupuestario.Controllers
 {
@@ -17,8 +18,9 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
         // GET: DIPLOMADO
         public ActionResult Index()
         {
-            var dIPLOMADOes = db.DIPLOMADOs.Include(d => d.CONSOLIDADO);
-            return View(dIPLOMADOes.ToList());
+            //var dIPLOMADOes = db.DIPLOMADOs.Include(d => d.CONSOLIDADO);
+            //return View(dIPLOMADOes.ToList());
+            return View(new DIPLOMADO_SRV().Listar());
         }
 
         // GET: DIPLOMADO/Details/5
@@ -28,7 +30,8 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            DIPLOMADO dIPLOMADO = db.DIPLOMADOs.Find(id);
+            //DIPLOMADO dIPLOMADO = db.DIPLOMADOs.Find(id);
+            DIPLOMADO dIPLOMADO = new DIPLOMADO_SRV().Buscar(id);
             if (dIPLOMADO == null)
             {
                 return HttpNotFound();
@@ -52,8 +55,9 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.DIPLOMADOs.Add(dIPLOMADO);
-                db.SaveChanges();
+                //db.DIPLOMADOs.Add(dIPLOMADO);
+                //db.SaveChanges();
+                new DIPLOMADO_SRV().Agregar(dIPLOMADO);
                 return RedirectToAction("Index");
             }
 
@@ -68,7 +72,8 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            DIPLOMADO dIPLOMADO = db.DIPLOMADOs.Find(id);
+            //DIPLOMADO dIPLOMADO = db.DIPLOMADOs.Find(id);
+            DIPLOMADO dIPLOMADO = new DIPLOMADO_SRV().Buscar(id);
             if (dIPLOMADO == null)
             {
                 return HttpNotFound();
@@ -86,8 +91,9 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(dIPLOMADO).State = EntityState.Modified;
-                db.SaveChanges();
+                //db.Entry(dIPLOMADO).State = EntityState.Modified;
+                //db.SaveChanges();
+                new DIPLOMADO_SRV().Editar(dIPLOMADO);
                 return RedirectToAction("Index");
             }
             ViewBag.CONSOLIDADOID = new SelectList(db.CONSOLIDADOs, "ID", "MONTO", dIPLOMADO.CONSOLIDADOID);
@@ -101,7 +107,8 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            DIPLOMADO dIPLOMADO = db.DIPLOMADOs.Find(id);
+            //DIPLOMADO dIPLOMADO = db.DIPLOMADOs.Find(id);
+            DIPLOMADO dIPLOMADO = new DIPLOMADO_SRV().Buscar(id);
             if (dIPLOMADO == null)
             {
                 return HttpNotFound();
@@ -114,9 +121,10 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            DIPLOMADO dIPLOMADO = db.DIPLOMADOs.Find(id);
-            db.DIPLOMADOs.Remove(dIPLOMADO);
-            db.SaveChanges();
+            //DIPLOMADO dIPLOMADO = db.DIPLOMADOs.Find(id);
+            //db.DIPLOMADOs.Remove(dIPLOMADO);
+            //db.SaveChanges();
+            new DIPLOMADO_SRV().Eliminar(id);
             return RedirectToAction("Index");
         }
 
@@ -124,7 +132,8 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
         {
             if (disposing)
             {
-                db.Dispose();
+                //db.Dispose();
+                new DIPLOMADO_SRV().Dispose();
             }
             base.Dispose(disposing);
         }

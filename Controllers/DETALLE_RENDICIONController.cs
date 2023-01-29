@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Sistema_UVM_Control_Presupuestario;
+using Sistema_UVM_Control_Presupuestario.Servicios;
 
 namespace Sistema_UVM_Control_Presupuestario.Controllers
 {
@@ -17,7 +18,8 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
         // GET: DETALLE_RENDICION
         public ActionResult Index()
         {
-            return View(db.DETALLE_RENDICION.ToList());
+            //return View(db.DETALLE_RENDICION.ToList());
+            return View(new DETALLE_RENDICION_SRV().Listar());
         }
 
         // GET: DETALLE_RENDICION/Details/5
@@ -27,7 +29,8 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            DETALLE_RENDICION dETALLE_RENDICION = db.DETALLE_RENDICION.Find(id);
+            //DETALLE_RENDICION dETALLE_RENDICION = db.DETALLE_RENDICION.Find(id);
+            DETALLE_RENDICION dETALLE_RENDICION = new DETALLE_RENDICION_SRV().Buscar(id);
             if (dETALLE_RENDICION == null)
             {
                 return HttpNotFound();
@@ -50,8 +53,9 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.DETALLE_RENDICION.Add(dETALLE_RENDICION);
-                db.SaveChanges();
+                //db.DETALLE_RENDICION.Add(dETALLE_RENDICION);
+                //db.SaveChanges();
+                new DETALLE_RENDICION_SRV().Agregar(dETALLE_RENDICION);
                 return RedirectToAction("Index");
             }
 
@@ -65,7 +69,8 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            DETALLE_RENDICION dETALLE_RENDICION = db.DETALLE_RENDICION.Find(id);
+            //DETALLE_RENDICION dETALLE_RENDICION = db.DETALLE_RENDICION.Find(id);
+            DETALLE_RENDICION dETALLE_RENDICION = new DETALLE_RENDICION_SRV().Buscar(id);
             if (dETALLE_RENDICION == null)
             {
                 return HttpNotFound();
@@ -82,8 +87,9 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(dETALLE_RENDICION).State = EntityState.Modified;
-                db.SaveChanges();
+                //db.Entry(dETALLE_RENDICION).State = EntityState.Modified;
+                //db.SaveChanges();
+                new DETALLE_RENDICION_SRV().Editar(dETALLE_RENDICION);
                 return RedirectToAction("Index");
             }
             return View(dETALLE_RENDICION);
@@ -96,7 +102,8 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            DETALLE_RENDICION dETALLE_RENDICION = db.DETALLE_RENDICION.Find(id);
+            //DETALLE_RENDICION dETALLE_RENDICION = db.DETALLE_RENDICION.Find(id);
+            DETALLE_RENDICION dETALLE_RENDICION = new DETALLE_RENDICION_SRV().Buscar(id);
             if (dETALLE_RENDICION == null)
             {
                 return HttpNotFound();
@@ -109,9 +116,10 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            DETALLE_RENDICION dETALLE_RENDICION = db.DETALLE_RENDICION.Find(id);
-            db.DETALLE_RENDICION.Remove(dETALLE_RENDICION);
-            db.SaveChanges();
+            //DETALLE_RENDICION dETALLE_RENDICION = db.DETALLE_RENDICION.Find(id);
+            //db.DETALLE_RENDICION.Remove(dETALLE_RENDICION);
+            //db.SaveChanges();
+            new DETALLE_RENDICION_SRV().Eliminar(id);
             return RedirectToAction("Index");
         }
 
@@ -119,7 +127,8 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
         {
             if (disposing)
             {
-                db.Dispose();
+                //db.Dispose();
+                new DETALLE_RENDICION_SRV().Dispose();
             }
             base.Dispose(disposing);
         }

@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Sistema_UVM_Control_Presupuestario;
+using Sistema_UVM_Control_Presupuestario.Servicios;
 
 namespace Sistema_UVM_Control_Presupuestario.Controllers
 {
@@ -17,8 +18,9 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
         // GET: PAGO_DIPLOMADO
         public ActionResult Index()
         {
-            var pAGO_DIPLOMADO = db.PAGO_DIPLOMADOs.Include(p => p.PERSONA_NATURAL);
-            return View(pAGO_DIPLOMADO.ToList());
+            //var pAGO_DIPLOMADO = db.PAGO_DIPLOMADOs.Include(p => p.PERSONA_NATURAL);
+            //return View(pAGO_DIPLOMADO.ToList());
+            return View(new PAGO_DIPLOMADO_SRV().Listar());
         }
 
         // GET: PAGO_DIPLOMADO/Details/5
@@ -28,7 +30,8 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            PAGO_DIPLOMADO pAGO_DIPLOMADO = db.PAGO_DIPLOMADOs.Find(id);
+            //PAGO_DIPLOMADO pAGO_DIPLOMADO = db.PAGO_DIPLOMADOs.Find(id);
+            PAGO_DIPLOMADO pAGO_DIPLOMADO = new PAGO_DIPLOMADO_SRV().Buscar(id);
             if (pAGO_DIPLOMADO == null)
             {
                 return HttpNotFound();
@@ -52,8 +55,9 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.PAGO_DIPLOMADOs.Add(pAGO_DIPLOMADO);
-                db.SaveChanges();
+                //db.PAGO_DIPLOMADOs.Add(pAGO_DIPLOMADO);
+                //db.SaveChanges();
+                new PAGO_DIPLOMADO_SRV().Agregar(pAGO_DIPLOMADO);
                 return RedirectToAction("Index");
             }
 
@@ -68,7 +72,8 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            PAGO_DIPLOMADO pAGO_DIPLOMADO = db.PAGO_DIPLOMADOs.Find(id);
+            //PAGO_DIPLOMADO pAGO_DIPLOMADO = db.PAGO_DIPLOMADOs.Find(id);
+            PAGO_DIPLOMADO pAGO_DIPLOMADO = new PAGO_DIPLOMADO_SRV().Buscar(id);
             if (pAGO_DIPLOMADO == null)
             {
                 return HttpNotFound();
@@ -86,8 +91,9 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(pAGO_DIPLOMADO).State = EntityState.Modified;
-                db.SaveChanges();
+                //db.Entry(pAGO_DIPLOMADO).State = EntityState.Modified;
+                //db.SaveChanges();
+                new PAGO_DIPLOMADO_SRV().Editar(pAGO_DIPLOMADO);
                 return RedirectToAction("Index");
             }
             ViewBag.PERSONA_NATURALID = new SelectList(db.PERSONA_NATURALes, "ID", "APELLIDO_PATERNO", pAGO_DIPLOMADO.PERSONA_NATURALID);
@@ -101,7 +107,8 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            PAGO_DIPLOMADO pAGO_DIPLOMADO = db.PAGO_DIPLOMADOs.Find(id);
+            //PAGO_DIPLOMADO pAGO_DIPLOMADO = db.PAGO_DIPLOMADOs.Find(id);
+            PAGO_DIPLOMADO pAGO_DIPLOMADO = new PAGO_DIPLOMADO_SRV().Buscar(id);
             if (pAGO_DIPLOMADO == null)
             {
                 return HttpNotFound();
@@ -114,9 +121,10 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            PAGO_DIPLOMADO pAGO_DIPLOMADO = db.PAGO_DIPLOMADOs.Find(id);
-            db.PAGO_DIPLOMADOs.Remove(pAGO_DIPLOMADO);
-            db.SaveChanges();
+            //PAGO_DIPLOMADO pAGO_DIPLOMADO = db.PAGO_DIPLOMADOs.Find(id);
+            //db.PAGO_DIPLOMADOs.Remove(pAGO_DIPLOMADO);
+            //db.SaveChanges();
+            new PAGO_DIPLOMADO_SRV().Eliminar(id);
             return RedirectToAction("Index");
         }
 
@@ -124,7 +132,8 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
         {
             if (disposing)
             {
-                db.Dispose();
+                //db.Dispose();
+                new PAGO_DIPLOMADO_SRV().Dispose(); 
             }
             base.Dispose(disposing);
         }

@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Sistema_UVM_Control_Presupuestario;
+using Sistema_UVM_Control_Presupuestario.Servicios;
 
 namespace Sistema_UVM_Control_Presupuestario.Controllers
 {
@@ -17,7 +18,8 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
         // GET: ROL
         public ActionResult Index()
         {
-            return View(db.ROLes.ToList());
+            //return View(db.ROLes.ToList());
+            return View(new ROL_SRV().Listar());
         }
 
         // GET: ROL/Details/5
@@ -27,7 +29,8 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            ROL rOL = db.ROLes.Find(id);
+            //ROL rOL = db.ROLes.Find(id);
+            ROL rOL = new ROL_SRV().Buscar(id);
             if (rOL == null)
             {
                 return HttpNotFound();
@@ -50,8 +53,9 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.ROLes.Add(rOL);
-                db.SaveChanges();
+                //db.ROLes.Add(rOL);
+                //db.SaveChanges();
+                new ROL_SRV().Agregar(rOL);
                 return RedirectToAction("Index");
             }
 
@@ -65,7 +69,8 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            ROL rOL = db.ROLes.Find(id);
+            //ROL rOL = db.ROLes.Find(id);
+            ROL rOL = new ROL_SRV().Buscar(id);
             if (rOL == null)
             {
                 return HttpNotFound();
@@ -82,8 +87,9 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(rOL).State = EntityState.Modified;
-                db.SaveChanges();
+                //db.Entry(rOL).State = EntityState.Modified;
+                //db.SaveChanges();
+                new ROL_SRV().Editar(rOL);
                 return RedirectToAction("Index");
             }
             return View(rOL);
@@ -96,7 +102,8 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            ROL rOL = db.ROLes.Find(id);
+            //ROL rOL = db.ROLes.Find(id);
+            ROL rOL = new ROL_SRV().Buscar(id);
             if (rOL == null)
             {
                 return HttpNotFound();
@@ -109,9 +116,10 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            ROL rOL = db.ROLes.Find(id);
-            db.ROLes.Remove(rOL);
-            db.SaveChanges();
+            //ROL rOL = db.ROLes.Find(id);
+            //db.ROLes.Remove(rOL);
+            //db.SaveChanges();
+            new ROL_SRV().Eliminar(id);
             return RedirectToAction("Index");
         }
 
@@ -119,7 +127,8 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
         {
             if (disposing)
             {
-                db.Dispose();
+                //db.Dispose();
+                new ROL_SRV().Dispose();
             }
             base.Dispose(disposing);
         }

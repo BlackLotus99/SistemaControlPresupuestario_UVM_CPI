@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Sistema_UVM_Control_Presupuestario;
+using Sistema_UVM_Control_Presupuestario.Servicios;
 
 namespace Sistema_UVM_Control_Presupuestario.Controllers
 {
@@ -17,7 +18,8 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
         // GET: CONSOLIDADO
         public ActionResult Index()
         {
-            return View(db.CONSOLIDADOs.ToList());
+            //return View(db.CONSOLIDADOs.ToList());
+            return View(new CONSOLIDADO_SRV().Listar());
         }
 
         // GET: CONSOLIDADO/Details/5
@@ -27,7 +29,8 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            CONSOLIDADO cONSOLIDADO = db.CONSOLIDADOs.Find(id);
+            //CONSOLIDADO cONSOLIDADO = db.CONSOLIDADOs.Find(id);
+            CONSOLIDADO cONSOLIDADO = new CONSOLIDADO_SRV().Buscar(id);
             if (cONSOLIDADO == null)
             {
                 return HttpNotFound();
@@ -50,8 +53,9 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.CONSOLIDADOs.Add(cONSOLIDADO);
-                db.SaveChanges();
+                //db.CONSOLIDADOs.Add(cONSOLIDADO);
+                //db.SaveChanges();
+                new CONSOLIDADO_SRV().Agregar(cONSOLIDADO);
                 return RedirectToAction("Index");
             }
 
@@ -65,7 +69,8 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            CONSOLIDADO cONSOLIDADO = db.CONSOLIDADOs.Find(id);
+            //CONSOLIDADO cONSOLIDADO = db.CONSOLIDADOs.Find(id);
+            CONSOLIDADO cONSOLIDADO = new CONSOLIDADO_SRV().Buscar(id);
             if (cONSOLIDADO == null)
             {
                 return HttpNotFound();
@@ -82,8 +87,9 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(cONSOLIDADO).State = EntityState.Modified;
-                db.SaveChanges();
+                //db.Entry(cONSOLIDADO).State = EntityState.Modified;
+                //db.SaveChanges();
+                new CONSOLIDADO_SRV().Editar(cONSOLIDADO);
                 return RedirectToAction("Index");
             }
             return View(cONSOLIDADO);
@@ -96,7 +102,8 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            CONSOLIDADO cONSOLIDADO = db.CONSOLIDADOs.Find(id);
+            //CONSOLIDADO cONSOLIDADO = db.CONSOLIDADOs.Find(id);
+            CONSOLIDADO cONSOLIDADO = new CONSOLIDADO_SRV().Buscar(id);
             if (cONSOLIDADO == null)
             {
                 return HttpNotFound();
@@ -109,9 +116,10 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            CONSOLIDADO cONSOLIDADO = db.CONSOLIDADOs.Find(id);
-            db.CONSOLIDADOs.Remove(cONSOLIDADO);
-            db.SaveChanges();
+            //CONSOLIDADO cONSOLIDADO = db.CONSOLIDADOs.Find(id);
+            //db.CONSOLIDADOs.Remove(cONSOLIDADO);
+            //db.SaveChanges();
+            new CONSOLIDADO_SRV().Eliminar(id);
             return RedirectToAction("Index");
         }
 
@@ -119,7 +127,8 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
         {
             if (disposing)
             {
-                db.Dispose();
+                //db.Dispose();
+                new CONSOLIDADO_SRV().Dispose();
             }
             base.Dispose(disposing);
         }

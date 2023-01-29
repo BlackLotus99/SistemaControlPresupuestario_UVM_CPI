@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Sistema_UVM_Control_Presupuestario;
+using Sistema_UVM_Control_Presupuestario.Servicios;
 
 namespace Sistema_UVM_Control_Presupuestario.Controllers
 {
@@ -17,8 +18,9 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
         // GET: SOLICITUD
         public ActionResult Index()
         {
-            var sOLICITUDs = db.SOLICITUDs.Include(s => s.CAPEX).Include(s => s.OPEX).Include(s => s.PERSONA_JURIDICA);
-            return View(sOLICITUDs.ToList());
+            //var sOLICITUDs = db.SOLICITUDs.Include(s => s.CAPEX).Include(s => s.OPEX).Include(s => s.PERSONA_JURIDICA);
+            //return View(sOLICITUDs.ToList());
+            return View(new SOLICITUD_SRV().Listar());
         }
 
         // GET: SOLICITUD/Details/5
@@ -28,7 +30,8 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            SOLICITUD sOLICITUD = db.SOLICITUDs.Find(id);
+            //SOLICITUD sOLICITUD = db.SOLICITUDs.Find(id);
+            SOLICITUD sOLICITUD = new SOLICITUD_SRV().Buscar(id);
             if (sOLICITUD == null)
             {
                 return HttpNotFound();
@@ -54,8 +57,9 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.SOLICITUDs.Add(sOLICITUD);
-                db.SaveChanges();
+                //db.SOLICITUDs.Add(sOLICITUD);
+                //db.SaveChanges();
+                new SOLICITUD_SRV().Agregar(sOLICITUD);
                 return RedirectToAction("Index");
             }
 
@@ -72,7 +76,8 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            SOLICITUD sOLICITUD = db.SOLICITUDs.Find(id);
+            //SOLICITUD sOLICITUD = db.SOLICITUDs.Find(id);
+            SOLICITUD sOLICITUD = new SOLICITUD_SRV().Buscar(id);
             if (sOLICITUD == null)
             {
                 return HttpNotFound();
@@ -92,8 +97,9 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(sOLICITUD).State = EntityState.Modified;
-                db.SaveChanges();
+                //db.Entry(sOLICITUD).State = EntityState.Modified;
+                //db.SaveChanges();
+                new SOLICITUD_SRV().Editar(sOLICITUD);
                 return RedirectToAction("Index");
             }
             ViewBag.CAPEXID = new SelectList(db.CAPEXes, "ID", "DETALLE", sOLICITUD.CAPEXID);
@@ -109,7 +115,8 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            SOLICITUD sOLICITUD = db.SOLICITUDs.Find(id);
+            //SOLICITUD sOLICITUD = db.SOLICITUDs.Find(id);
+            SOLICITUD sOLICITUD = new SOLICITUD_SRV().Buscar(id);
             if (sOLICITUD == null)
             {
                 return HttpNotFound();
@@ -122,9 +129,10 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            SOLICITUD sOLICITUD = db.SOLICITUDs.Find(id);
-            db.SOLICITUDs.Remove(sOLICITUD);
-            db.SaveChanges();
+            //SOLICITUD sOLICITUD = db.SOLICITUDs.Find(id);
+            //db.SOLICITUDs.Remove(sOLICITUD);
+            //db.SaveChanges();
+            new SOLICITUD_SRV().Eliminar(id);
             return RedirectToAction("Index");
         }
 
@@ -132,7 +140,8 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
         {
             if (disposing)
             {
-                db.Dispose();
+                //db.Dispose();
+                new SOLICITUD_SRV().Dispose();
             }
             base.Dispose(disposing);
         }

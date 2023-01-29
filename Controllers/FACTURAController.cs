@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Sistema_UVM_Control_Presupuestario;
+using Sistema_UVM_Control_Presupuestario.Servicios;
 
 namespace Sistema_UVM_Control_Presupuestario.Controllers
 {
@@ -17,8 +18,9 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
         // GET: FACTURA
         public ActionResult Index()
         {
-            var fACTURAs = db.FACTURAs.Include(f => f.OPEX).Include(f => f.CAPEX);
-            return View(fACTURAs.ToList());
+            //var fACTURAs = db.FACTURAs.Include(f => f.OPEX).Include(f => f.CAPEX);
+            //return View(fACTURAs.ToList());
+            return View(new FACTURA_SRV().Listar());
         }
 
         // GET: FACTURA/Details/5
@@ -28,7 +30,8 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            FACTURA fACTURA = db.FACTURAs.Find(id);
+            //FACTURA fACTURA = db.FACTURAs.Find(id);
+            FACTURA fACTURA = new FACTURA_SRV().buscar(id);
             if (fACTURA == null)
             {
                 return HttpNotFound();
@@ -53,8 +56,9 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.FACTURAs.Add(fACTURA);
-                db.SaveChanges();
+                //db.FACTURAs.Add(fACTURA);
+                //db.SaveChanges();
+                new FACTURA_SRV().Agregar(fACTURA);
                 return RedirectToAction("Index");
             }
 
@@ -70,7 +74,8 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            FACTURA fACTURA = db.FACTURAs.Find(id);
+            //FACTURA fACTURA = db.FACTURAs.Find(id);
+            FACTURA fACTURA = new FACTURA_SRV().buscar(id);
             if (fACTURA == null)
             {
                 return HttpNotFound();
@@ -89,8 +94,9 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(fACTURA).State = EntityState.Modified;
-                db.SaveChanges();
+                //db.Entry(fACTURA).State = EntityState.Modified;
+                //db.SaveChanges();
+                new FACTURA_SRV().Editar(fACTURA);
                 return RedirectToAction("Index");
             }
             ViewBag.OPEXID = new SelectList(db.OPEXes, "ID", "MONTO_NETO", fACTURA.OPEXID);
@@ -105,7 +111,8 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            FACTURA fACTURA = db.FACTURAs.Find(id);
+            //FACTURA fACTURA = db.FACTURAs.Find(id);
+            FACTURA fACTURA = new FACTURA_SRV().buscar(id);
             if (fACTURA == null)
             {
                 return HttpNotFound();
@@ -118,9 +125,10 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            FACTURA fACTURA = db.FACTURAs.Find(id);
-            db.FACTURAs.Remove(fACTURA);
-            db.SaveChanges();
+            //FACTURA fACTURA = db.FACTURAs.Find(id);
+            //db.FACTURAs.Remove(fACTURA);
+            //db.SaveChanges();
+            new FACTURA_SRV().Eliminar(id);
             return RedirectToAction("Index");
         }
 
@@ -128,7 +136,8 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
         {
             if (disposing)
             {
-                db.Dispose();
+                //db.Dispose();
+                new FACTURA_SRV().Dispose();
             }
             base.Dispose(disposing);
         }

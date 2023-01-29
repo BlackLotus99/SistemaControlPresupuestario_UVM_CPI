@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Sistema_UVM_Control_Presupuestario;
+using Sistema_UVM_Control_Presupuestario.Servicios;
 
 namespace Sistema_UVM_Control_Presupuestario.Controllers
 {
@@ -17,8 +18,9 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
         // GET: RENDICION
         public ActionResult Index()
         {
-            var rENDICIONs = db.RENDICIONs.Include(r => r.PERSONA_JURIDICA).Include(r => r.PERSONA_NATURAL);
-            return View(rENDICIONs.ToList());
+            //var rENDICIONs = db.RENDICIONs.Include(r => r.PERSONA_JURIDICA).Include(r => r.PERSONA_NATURAL);
+            //return View(rENDICIONs.ToList());
+            return View(new RENDICION_SRV().Listar()); 
         }
 
         // GET: RENDICION/Details/5
@@ -28,7 +30,8 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            RENDICION rENDICION = db.RENDICIONs.Find(id);
+            //RENDICION rENDICION = db.RENDICIONs.Find(id);
+            RENDICION rENDICION = new RENDICION_SRV().Buscar(id);
             if (rENDICION == null)
             {
                 return HttpNotFound();
@@ -53,8 +56,9 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.RENDICIONs.Add(rENDICION);
-                db.SaveChanges();
+                //db.RENDICIONs.Add(rENDICION);
+                //db.SaveChanges();
+                new RENDICION_SRV().Agregar(rENDICION);
                 return RedirectToAction("Index");
             }
 
@@ -70,7 +74,8 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            RENDICION rENDICION = db.RENDICIONs.Find(id);
+            //RENDICION rENDICION = db.RENDICIONs.Find(id);
+            RENDICION rENDICION = new RENDICION_SRV().Buscar(id);
             if (rENDICION == null)
             {
                 return HttpNotFound();
@@ -89,8 +94,9 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(rENDICION).State = EntityState.Modified;
-                db.SaveChanges();
+                //db.Entry(rENDICION).State = EntityState.Modified;
+                //db.SaveChanges();
+                new RENDICION_SRV().Editar(rENDICION);
                 return RedirectToAction("Index");
             }
             ViewBag.PERSONA_JURIDICAID = new SelectList(db.PERSONA_JURIDICAs, "ID", "NOMBRE", rENDICION.PERSONA_JURIDICAID);
@@ -105,7 +111,8 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            RENDICION rENDICION = db.RENDICIONs.Find(id);
+            //RENDICION rENDICION = db.RENDICIONs.Find(id);
+                RENDICION rENDICION = new RENDICION_SRV().Buscar(id);
             if (rENDICION == null)
             {
                 return HttpNotFound();
@@ -118,9 +125,10 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            RENDICION rENDICION = db.RENDICIONs.Find(id);
-            db.RENDICIONs.Remove(rENDICION);
-            db.SaveChanges();
+            //RENDICION rENDICION = db.RENDICIONs.Find(id);
+            //db.RENDICIONs.Remove(rENDICION);
+            //db.SaveChanges();
+            new RENDICION_SRV().Eliminar(id);
             return RedirectToAction("Index");
         }
 
@@ -128,7 +136,8 @@ namespace Sistema_UVM_Control_Presupuestario.Controllers
         {
             if (disposing)
             {
-                db.Dispose();
+                //db.Dispose();
+                new RENDICION_SRV().Dispose();
             }
             base.Dispose(disposing);
         }
